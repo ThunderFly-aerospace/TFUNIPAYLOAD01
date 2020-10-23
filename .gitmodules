@@ -1,0 +1,3 @@
+[submodule "SW/arduino/src/TFUNIPAYLOAD/lib/c_library_v2"]
+	path = SW/arduino/src/TFUNIPAYLOAD/lib/c_library_v2
+	url = git@github.com:mavlink/c_library_v2.git
