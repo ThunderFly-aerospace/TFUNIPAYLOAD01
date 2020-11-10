@@ -1,7 +1,20 @@
 # TFUNIPAYLOAD
 Reference design of PX4 interface for a universal parameter measuring payload.
 
-PX4 is capable to log some data from UART port. K tomu, aby data byla přijmuta autopilotem musí mít správnou formu. A to musí se po sériovce posílat [MAVLink v2](https://mavlink.io/en/) pakety. Logovány budou pakety [Tunnel (#385)](https://mavlink.io/en/messages/common.html#TUNNEL).
+PX4 is capable to log some data from UART (Telemetry Port) port.  [Pixhawk standard connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) is following: 
+
+
+| Pin        | Signal | Voltage levels  |
+| ---------- |:------:| ---------------:|
+| 1 (red)    | Vcc | +5V |
+| 2 (blk)    | TX (OUT)  |   +3.3 V |
+| 3 (blk)    | RX (IN)   |   +3.3 V |
+| 4 (blk)    | CTS (IN)  |   +3.3 V |
+| 5 (blk)    | RTS (OUT) |   +3.3 V |
+| 6 (blk)    | GND       |   GND    |
+
+
+K tomu, aby data byla přijmuta autopilotem musí mít správnou formu. A to musí se po sériovce posílat [MAVLink v2](https://mavlink.io/en/) pakety. Logovány budou pakety [Tunnel (#385)](https://mavlink.io/en/messages/common.html#TUNNEL).
 
 Jde k tomu použít tato knihovna, která je automaticky generována z konfiguračních souborů: [c_library_v2](https://github.com/mavlink/c_library_v2)
 
