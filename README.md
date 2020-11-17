@@ -4,14 +4,14 @@ Reference design of PX4 interface for a universal parameter measuring payload.
 PX4 is capable to log some data from UART (Telemetry Port) port.  [Pixhawk standard connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) is following: 
 
 
-| Pin        | Signal | Voltage levels  |
-| ---------- |:------:| ---------------:|
-| 1 (red)    | Vcc | +5V |
-| 2 (blk)    | TX (OUT)  |   +3.3 V |
-| 3 (blk)    | RX (IN)   |   +3.3 V |
-| 4 (blk)    | CTS (IN)  |   +3.3 V |
-| 5 (blk)    | RTS (OUT) |   +3.3 V |
-| 6 (blk)    | GND       |   GND    |
+| Pin        | Signal | Voltage levels  | Read/Write | Write |
+| ---------- |:------:| ---------------:|------|------|
+| 1 (red)    | Vcc | +5V | Optional | Optional |
+| 2 (blk)    | TX (OUT)  |   +3.3 V | PX4 -> Payload | -- |
+| 3 (blk)    | RX (IN)   |   +3.3 V | Payload -> PX4 | Payload -> PX4 |
+| 4 (blk)    | CTS (IN)  |   +3.3 V | -- | -- |
+| 5 (blk)    | RTS (OUT) |   +3.3 V | -- | -- |
+| 6 (blk)    | GND       |   GND    | GND | GND |
 
 
 K tomu, aby data byla přijmuta autopilotem musí mít správnou formu. A to musí se po sériovce posílat [MAVLink v2](https://mavlink.io/en/) pakety. Logovány budou pakety [Tunnel (#385)](https://mavlink.io/en/messages/common.html#TUNNEL).
@@ -38,21 +38,28 @@ Autopilot má omezené množství paměti. Proto je důležité zajistit na stra
 
 ## Jak zjistit, jestli autopilot přijímá spravné zprávy?
 
-Existuje několik možností, jak to zjistit. Nejsnazší je pomocí QGC. 
-
+Existuje několik možností, jak to zjistit.
 ### V QGC
 
-Zpráva je vidět v QGC, pokud zpráva má být broadcastovaná do celé sítě (nebo na adresu QGC). Tj. zpráva musí mďt nastavené cílové sysid a compid 0, 0. 
+Zprávu nejsnáze lze zobrazit živě v [QGC](https://github.com/mavlink/qgroundcontrol/releases). Aby tento posutp fungoval, musí být splňeny dvě podmínky. 
 
-Následně v časti `mavlink analyzer` je vidět seznam poslaných zpráv. 
+ 1. Zpráva musí být broadcastovaná. Tj. zpráva musí mít nastavené cílové sysid a compid 0, 0. 
+ 1. Počítač musí být připojený přes MAVLink instanci, která podporuje přeposílávání zpráv (např. portem TELEM1 - třeba pomocí modemu nebu UART-USB převodníkem) 
+ 
+ > Pozor, tento postup nebude fungovat, pokud je autopilot připojení přes USB. 
+
+Po otevření QGC připojíte autopilota k počítači (modemem/převodníkem). Po spojení autopilota s QGC budou vidět živá data (například náklony autopilota). Následně kliknutím na logo QGC v levém horním rohu se otevře menu, kde vyberete `Analyze tools`. Následně otevřete `MAVLink inspector`. Uvidíte seznam všech správ. 
+
+![obrazek](https://user-images.githubusercontent.com/5196729/99434203-cec17d00-290e-11eb-93a7-e089ba893775.png)
+
 
 ### Pomocí konzole
-Do konzole autopilota se lze dostat pomocí python [skriptu](). Nebo pomocí [QGC](). 
+Výhoda tohoto postupu je, že to není závislé na nastavení broadcastování a zjistíte tím, jestli je zpráva přijatá a rozparserovaná autopilotem. Pokud ji zde uvidíte, tak bude logována (pokud je logování zapnuté). S tímto postupem ho lze připojit k počítači pomocí USB. 
 
-Pokud používáte python skript, tak stačí spustit tento skript s parametrem sériovky, na které je připojený autopilot/modem. 
+Do konzole autopilota se lze dostat pomocí python [skriptu](https://github.com/ThunderFly-aerospace/PX4Firmware/blob/master/Tools/mavlink_shell.py). Nebo pomocí [QGC](https://github.com/mavlink/qgroundcontrol/releases). 
 
-V případě QGC je potřeba v QGC otevřít konzoli autopilota. Nahoře kliknout na logo QGC, tam je obrázek logů a následně vybrat konzoli. 
-
+ * Pokud používáte python skript, tak stačí spustit tento python3 skript s parametrem sériovky, na které je připojený autopilot/modem. 
+ * V případě QGC, je potřeba v QGC otevřít konzoli autopilota. Nahoře kliknout na logo QGC, tam je `Analyze tools` a následně vybrat konzoli. 
 
 V konzoli lze získat přijatou zprávu pomocí příkazu 
 
@@ -60,8 +67,11 @@ V konzoli lze získat přijatou zprávu pomocí příkazu
 
 Tento příkaz zobrazí aktuální tunnel zprávu. Pokud chcete, aby se vypisovala nová zpráva sama, stačí přidat parametr `-n 100`, čímž se bude vypisovat 100 zpráv. 
 
+Takto by měl vypadat výstup:
+![obrazek](https://user-images.githubusercontent.com/5196729/99431661-6ae98500-290b-11eb-80a6-a08f8229d600.png)
 
 
 ### Z logu
+Zpráva je v autopilotu logována. Protože nástroje jako review tato data neukazují, je potřeba k tomu použít jiné nástroje. Jedním z nich je (PlotJuggler)[https://plotjuggler.io/], ve kterém lze otevřít log a zobrazit tunnel zprávu. 
 
-Zpráva je v autopilotu logována. 
+Dalším způsobem, jak otevřít log je připravený (jupiter notebook)[https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/master/SW/LogViewer/ReadTunnelData.ipynb], kde lze otevřít zaznamenaný log a vypsat tunnel zprávy. 
