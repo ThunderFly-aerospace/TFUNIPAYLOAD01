@@ -17,11 +17,12 @@ uint8_t data[2];
 
 void setup() {
   Serial.begin(57600);
-  while(!mav.begin()){
-    Serial.println("Not Connected!");
-    delay(250);
-  }
-  mav.Stream();
+  mav.begin();
+//  while(!mav.begin()){
+//    Serial.println("Not Connected!");
+//    delay(250);
+//  }
+//  mav.Stream();
   delay(2000);
 }
 
@@ -35,7 +36,6 @@ void loop() {
     heartbeat_previous_time = current_ms;
     
     mav.SendHeartBeat();
-    // mav.SendTunnelData(data, 10, 0, 1, 1);
   }
   
   if( current_ms > (data_previous_time + data_period)){
@@ -47,7 +47,13 @@ void loop() {
     // data array (max length 128), data array size, data type (0 default - unknown), target sysid, target compid
     // For unicast (only for logging purposes) set sysid and compid to match the autopilot. For realtime visualisation, you can
     // set sysid and comid to broadcast (0, 0)
+
+
+    // Broadcast
     mav.SendTunnelData(data, sizeof(data), 0, 0, 0);
+
+    // Unicast to autopilot; for logging
+    // mav.SendTunnelData(data, sizeof(data), 0, 1, 1);
     
     led_status = !led_status;
     digitalWrite(13, led_status);
