@@ -21,17 +21,16 @@ Jde k tomu použít tato knihovna, která je automaticky generována z konfigura
 ## Příklady
 Máme připravené dva příklady. 
 
-### TFUNIPAYLOAD
-Zde je příklad, který poslouchá MAVLINK zprávy z autopilota a posílá tunnel zprávy s náhodnými daty do autopilota. 
-[TFUNIPAYLOAD.ino](/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino)
+#### TFUNIPAYLOAD
+je příklad, který poslouchá MAVLINK zprávy z autopilota a posílá tunnel zprávy s náhodnými daty do autopilota. Zdrojový kód je [TFUNIPAYLOAD.ino](/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino)
 
-### TFUNIPAYLOAD_MINIMAL
-Protože parserování zpráv je náročné na paměť, máme připravený přiklad, který pouze posílá data (HEARTBEAT a TUNNEL zprávy). Tento příklad nevyžaduje připojený TX (z autopilota) vodič. 
+#### TFUNIPAYLOAD_MINIMAL
+Protože parserování zpráv je náročné na paměť, máme připravený přiklad, který pouze posílá data (HEARTBEAT a TUNNEL zprávy). Tento příklad nevyžaduje připojený TX (z autopilota) vodič. Je vhodný pro MCU s menším množstvím paměti. 
 
 Příklad je [TFUNIPAYLOAD_MINIMAL.ino](/SW/arduino/src/TFUNIPAYLOAD_MINIMAL/TFUNIPAYLOAD_MINIMAL.ino)
 
 
-### Funkce
+#### Funkce
 [Funkce na odeslání tunnel paketu](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/79eee22fe32725179d1df2b6ca72e901e2be1834/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino#L50)
 
 ```  mav.SendTunnelData(data, sizeof(data), 0, 1, 0); ```
