@@ -34,3 +34,34 @@ Tato funkce umožňuje poslat tunnel data do autopilota. Její argumenty jsou:
 Pokud budeme chtít data logvat, tak cílové sysid a compid musí být 1, 1 (id autopilota) 
 
 Autopilot má omezené množství paměti. Proto je důležité zajistit na straně payloadu, že nedojde k její zaplňení.
+
+
+## Jak zjistit, jestli autopilot přijímá spravné zprávy?
+
+Existuje několik možností, jak to zjistit. Nejsnazší je pomocí QGC. 
+
+### V QGC
+
+Zpráva je vidět v QGC, pokud zpráva má být broadcastovaná do celé sítě (nebo na adresu QGC). Tj. zpráva musí mďt nastavené cílové sysid a compid 0, 0. 
+
+Následně v časti `mavlink analyzer` je vidět seznam poslaných zpráv. 
+
+### Pomocí konzole
+Do konzole autopilota se lze dostat pomocí python [skriptu](). Nebo pomocí [QGC](). 
+
+Pokud používáte python skript, tak stačí spustit tento skript s parametrem sériovky, na které je připojený autopilot/modem. 
+
+V případě QGC je potřeba v QGC otevřít konzoli autopilota. Nahoře kliknout na logo QGC, tam je obrázek logů a následně vybrat konzoli. 
+
+
+V konzoli lze získat přijatou zprávu pomocí příkazu 
+
+`listener tunnel`
+
+Tento příkaz zobrazí aktuální tunnel zprávu. Pokud chcete, aby se vypisovala nová zpráva sama, stačí přidat parametr `-n 100`, čímž se bude vypisovat 100 zpráv. 
+
+
+
+### Z logu
+
+Zpráva je v autopilotu logována. 
