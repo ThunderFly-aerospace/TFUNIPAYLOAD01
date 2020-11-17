@@ -95,6 +95,6 @@ Takto by měl vypadat výstup:
 
 
 ### Z logu
-Zpráva je v autopilotu logována. Protože nástroje jako review tato data neukazují, je potřeba k tomu použít jiné nástroje. Jedním z nich je (PlotJuggler)[https://plotjuggler.io/], ve kterém lze otevřít log a zobrazit tunnel zprávu. 
+Zpráva je v autopilotu logována. Protože nástroje jako [Flight review](https://review.px4.io/) tato data neukazují, je potřeba k tomu použít jiné nástroje. Jedním z nich je [PlotJuggler](https://plotjuggler.io/), ve kterém lze otevřít log a zobrazit tunnel zprávu. 
 
-Dalším způsobem, jak otevřít log je připravený (jupiter notebook)[https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/master/SW/LogViewer/ReadTunnelData.ipynb], kde lze otevřít zaznamenaný log a vypsat tunnel zprávy. 
+Dalším způsobem, jak otevřít log je připravený [jupiter notebook](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/master/SW/LogViewer/ReadTunnelData.ipynb), kde lze otevřít zaznamenaný log a vypsat tunnel zprávy. 
