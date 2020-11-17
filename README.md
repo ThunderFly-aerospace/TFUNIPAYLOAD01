@@ -57,7 +57,7 @@ V autopilotu je potřeba nastavit správně tyto parametry:
 | MAV_1_RATE  | **0 B/s** | |
 | SER_TEL2_BAUD | 57600 | Je potřeba konfigurovat port, který je nastavený v parametru `MAV_1_CONFIG`. Nastavuje se zde baudrate. |
 
-Jak nastavit parametry je popsáno v (návodu)[http://docs.px4.io/master/en/advanced_config/parameters.html#changing-a-parameter].
+Jak nastavit parametry je popsáno v [návodu](http://docs.px4.io/master/en/advanced_config/parameters.html#changing-a-parameter)
 
 ## Jak zjistit, jestli autopilot přijímá spravné zprávy?
 
