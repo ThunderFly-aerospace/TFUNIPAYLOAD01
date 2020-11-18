@@ -46,16 +46,16 @@ Pokud budeme chtít data logvat, tak cílové sysid a compid musí být 1, 1 (id
 Autopilot má omezené množství paměti. Proto je důležité zajistit na straně payloadu, že nedojde k její zaplňení.
 
 
-## Nastavení autopiolota
+## Nastavení autopilota
 
-V autopilotu je potřeba nastavit správně tyto parametry:
-| Parametr | Hodnota | Popis |
-|------|-------|------|
-| MAV_1_CONFIG | TELEM 2 | Port, na kterém se budou očekávat MAVLINK pakety. Lze nastavit jakýkoliv, volný, port |
-| MAV_1_FORWARD | **1** | |
-| MAV_1_RADIO_CTL | **0** | |
-| MAV_1_RATE  | **0 B/s** | |
-| SER_TEL2_BAUD | 57600 | Je potřeba konfigurovat port, který je nastavený v parametru `MAV_1_CONFIG`. Nastavuje se zde baudrate. |
+V PX4 firmware autopilota je potřeba nastavit správně tyto parametry:
+|     Parametr    | Hodnota | Popis |
+|-----------------|-----------|------|
+| MAV_1_CONFIG    | TELEM 2   | Port, na kterém se budou očekávat MAVLINK pakety. Lze nastavit jakýkoliv, volný, port |
+| MAV_1_FORWARD   | **1**     | Zapnutí forwardování zpráv z tohoto portu |
+| MAV_1_RADIO_CTL | **0**     | |
+| MAV_1_RATE      | **0 B/s** | |
+| SER_TEL2_BAUD   |     57600 | Je potřeba konfigurovat port, který je nastavený v parametru `MAV_1_CONFIG`. Nastavuje se zde baudrate. |
 
 Jak nastavit parametry je popsáno v [návodu](http://docs.px4.io/master/en/advanced_config/parameters.html#changing-a-parameter)
 
@@ -98,3 +98,9 @@ Takto by měl vypadat výstup:
 Zpráva je v autopilotu logována. Protože nástroje jako [Flight review](https://review.px4.io/) tato data neukazují, je potřeba k tomu použít jiné nástroje. Jedním z nich je [PlotJuggler](https://plotjuggler.io/), ve kterém lze otevřít log a zobrazit tunnel zprávu. 
 
 Dalším způsobem, jak otevřít log je připravený [jupiter notebook](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/master/SW/LogViewer/ReadTunnelData.ipynb), kde lze otevřít zaznamenaný log a vypsat tunnel zprávy. 
+
+## Omezení
+
+  * Nezahlcení paměti autopilota zprávami je potřeba zajistit na straně payloadu
+  * Tímto způsobem je možné připojit nejvýše 2 zařízení + modem, případně 3 zařízení bez modemu, limit vzniká na straně driveru mavlinku, který umí připojit nejvíce 3 instance mavlink zařízení. 
+
