@@ -62,6 +62,7 @@ Jak nastavit parametry je popsáno v [návodu](http://docs.px4.io/master/en/adva
 ## Jak zjistit, jestli autopilot přijímá spravné zprávy?
 
 Existuje několik možností, jak to zjistit.
+
 ### V QGC
 
 Zprávu nejsnáze lze zobrazit živě v [QGC](https://github.com/mavlink/qgroundcontrol/releases). Aby tento posutp fungoval, musí být splňeny dvě podmínky. 
@@ -69,7 +70,7 @@ Zprávu nejsnáze lze zobrazit živě v [QGC](https://github.com/mavlink/qground
  1. Zpráva musí být broadcastovaná. Tj. zpráva musí mít nastavené cílové sysid a compid 0, 0. 
  1. Počítač musí být připojený přes MAVLink instanci, která podporuje přeposílávání zpráv (např. portem TELEM1 - třeba pomocí modemu nebu UART-USB převodníkem) 
  
- > Pozor, tento postup nebude fungovat, pokud je autopilot připojení přes USB. 
+ > Pozor, tento postup nebude fungovat, pokud je autopilot připojen přes USB. 
 
 Po otevření QGC připojíte autopilota k počítači (modemem/převodníkem). Po spojení autopilota s QGC budou vidět živá data (například náklony autopilota). Následně kliknutím na logo QGC v levém horním rohu se otevře menu, kde vyberete `Analyze tools`. Následně otevřete `MAVLink inspector`. Uvidíte seznam všech správ. 
 
@@ -77,6 +78,7 @@ Po otevření QGC připojíte autopilota k počítači (modemem/převodníkem). 
 
 
 ### Pomocí konzole
+
 Výhoda tohoto postupu je, že to není závislé na nastavení broadcastování a zjistíte tím, jestli je zpráva přijatá a rozparserovaná autopilotem. Pokud ji zde uvidíte, tak bude logována (pokud je logování zapnuté). S tímto lze využít USB připojení. 
 
 Do konzole autopilota se lze dostat pomocí python [skriptu](https://github.com/ThunderFly-aerospace/PX4Firmware/blob/master/Tools/mavlink_shell.py). Nebo pomocí [QGC](https://github.com/mavlink/qgroundcontrol/releases). 
@@ -95,6 +97,7 @@ Takto by měl vypadat výstup:
 
 
 ### Z logu
+
 Zpráva je v autopilotu logována. Protože nástroje jako [Flight review](https://review.px4.io/) tato data neukazují, je potřeba k tomu použít jiné nástroje. Jedním z nich je [PlotJuggler](https://plotjuggler.io/), ve kterém lze otevřít log a zobrazit tunnel zprávu. 
 
 Dalším způsobem, jak otevřít log je připravený [jupiter notebook](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/master/SW/LogViewer/ReadTunnelData.ipynb), kde lze otevřít zaznamenaný log a vypsat tunnel zprávy. 
