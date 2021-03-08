@@ -94,12 +94,12 @@ Do konzole autopilota se lze dostat pomocí python [skriptu](https://github.com/
 
 V konzoli lze získat přijatou zprávu pomocí příkazu
 
-`listener tunnel`
+`listener mavlink_tunnel`
 
 Tento příkaz zobrazí aktuální tunnel zprávu. Pokud chcete, aby se vypisovala nová zpráva sama, stačí přidat parametr `-n 100`, čímž se bude vypisovat 100 zpráv.
 
 Takto by měl vypadat výstup:
-![obrazek](https://user-images.githubusercontent.com/5196729/99431661-6ae98500-290b-11eb-80a6-a08f8229d600.png)
+![mavlink tunnel uorb message](https://user-images.githubusercontent.com/5196729/99431661-6ae98500-290b-11eb-80a6-a08f8229d600.png)
 
 
 ### Z logu
