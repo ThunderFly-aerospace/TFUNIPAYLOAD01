@@ -53,7 +53,8 @@ Autopilot má omezené množství paměti. Proto je důležité zajistit na stra
 
 ## Nastavení autopilota
 
-V PX4 firmware autopilota je potřeba nastavit správně tyto parametry:
+V PX4 firmware autopilota je potřeba nastavit správně tyto parametry. MAV_1_FORWARD a další se zobrazí až po nastavení parametru MAV_1_CONFIG a rebootování PX4. 
+
 |     Parametr    | Hodnota | Popis |
 |-----------------|-----------|------|
 | MAV_1_CONFIG    | TELEM 2   | Port, na kterém se budou očekávat MAVLINK pakety. Lze nastavit jakýkoliv, volný, port |
