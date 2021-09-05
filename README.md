@@ -23,6 +23,16 @@ K tomu, aby data byla přijmuta autopilotem musí mít správnou formu. A to mus
 
 Jde k tomu použít tato knihovna, která je automaticky generována z konfiguračních souborů: [c_library_v2](https://github.com/mavlink/c_library_v2)
 
+## Existující zařízení využívající TFATMON
+
+| Název zařízení | Typ dat | Popis |
+|----------------|---------|-------|
+| TFPM01         | 1       | Senzor prachových částic |
+| TFHT01         | 2       | Senzor vlhkosti a teploty|
+| USTTHUNDERMILL01| 3      | Senzor intenzity elektrického pole |
+|                |         |                                    |
+
+
 ## Příklady
 Máme připravené dva příklady.
 
@@ -46,10 +56,9 @@ Tato funkce umožňuje poslat tunnel data do autopilota. Její argumenty jsou:
  * Cílové sysid
  * Cílové compid
 
-Pokud budeme chtít data logvat, tak cílové sysid a compid musí být 1, 1 (id autopilota)
+Pokud budeme chtít data pouze logovat, tak cílové sysid a compid musí odpovídat adrese autopilota být. Ta obvykle je `sysid: 1, compid: 1`. Pokud budeme chtít data logovat a posílat do GCS, je potřeba nastavit broadcast. Takže `sysid: 1, compid: 0` nebo dokonce `sysid: 0, compid: 0`. 
 
-Autopilot má omezené množství paměti. Proto je důležité zajistit na straně payloadu, že nedojde k její zaplňení.
-
+Autopilot má omezené množství paměti (SD karta). Proto je důležité zajistit na straně payloadu, že nedojde k její zaplňení. Alternativně lze v autopilotu nastavit maximální bandwidth na MAVLink rozhraní. Nevím, co se stane při překročení této úrovně [2021/09]. 
 
 ## Nastavení autopilota
 
