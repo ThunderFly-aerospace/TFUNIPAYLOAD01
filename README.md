@@ -121,3 +121,4 @@ Dalším způsobem, jak otevřít log je připravený [jupiter notebook](https:/
 
   * Nezahlcení paměti autopilota zprávami je potřeba zajistit na straně payloadu
   * Tímto způsobem je možné připojit nejvýše 2 zařízení + modem, případně 3 zařízení bez modemu, limit vzniká na straně driveru mavlinku, který umí připojit nejvíce 3 instance mavlink zařízení.
+  * Na vstupu zpráv z payloadu a vystupu do sik modemu nemuze existovat stejny typ mavlink zprav, ktere se budou lisit pouze cetnosti prenosu. Tj. nelze jednoduse redukovat množství dat, ktera se prenaseji na zem vuci mnozstvi logovanych dat. 
