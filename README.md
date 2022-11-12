@@ -49,7 +49,7 @@ Protože parserování zpráv je náročné na paměť, máme připravený přik
 Příklad je [TFUNIPAYLOAD_MINIMAL.ino](/SW/arduino/src/TFUNIPAYLOAD_MINIMAL/TFUNIPAYLOAD_MINIMAL.ino)
 
 
-#### Funkce
+#### Tunnel packet sending function
 
 [Funkce na odeslání tunnel paketu](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/79eee22fe32725179d1df2b6ca72e901e2be1834/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino#L50)
 
@@ -65,7 +65,7 @@ Pokud budeme chtít data pouze logovat, tak cílové sysid a compid musí odpov�
 
 Autopilot má omezené množství paměti (SD karta). Proto je důležité zajistit na straně payloadu, že nedojde k její zaplňení. Alternativně lze v autopilotu nastavit maximální bandwidth na MAVLink rozhraní. Nevím, co se stane při překročení této úrovně [2021/09]. 
 
-## Nastavení autopilota
+## Autopilot configuration
 
 V PX4 firmware autopilota je potřeba nastavit správně tyto parametry. MAV_1_FORWARD a další se zobrazí až po nastavení parametru MAV_1_CONFIG a rebootování PX4. 
 
@@ -79,11 +79,11 @@ V PX4 firmware autopilota je potřeba nastavit správně tyto parametry. MAV_1_F
 
 Jak nastavit parametry je popsáno v [návodu](http://docs.px4.io/master/en/advanced_config/parameters.html#changing-a-parameter)
 
-## Jak zjistit, jestli autopilot přijímá spravné zprávy?
+## How to check, that autopilot correctly receives MAVLink messages?
 
 Existuje několik možností, jak to zjistit.
 
-### V QGC
+### Using the QGC
 
 Zprávu nejsnáze lze zobrazit živě v [QGC](https://github.com/mavlink/qgroundcontrol/releases). Aby tento posutp fungoval, musí být splněny dvě podmínky.
 
