@@ -25,7 +25,7 @@ In order to data been received by PX4 autopilot, it should have an specific form
 
 The following library [c_library_v2](https://github.com/mavlink/c_library_v2), which is automatically generated from message definion files could be used. 
 
-## Existing sensor devices using TF-ATMON system
+## Existing sensor devices of TF-ATMON system
 
 | Device identification | Data type | Description |
 |----------------|---------|-------|
@@ -40,7 +40,7 @@ There are multiple firmware examples for different use cases.
 
 #### TFUNIPAYLOAD
 
-je příklad, který poslouchá MAVLINK zprávy z autopilota a posílá tunnel zprávy s náhodnými daty do autopilota. Zdrojový kód je [TFUNIPAYLOAD.ino](/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino)
+TFUNIPAYLOAD.ino is basic example, which listens to MAVLikn messages from autopilot and sensd tunnel packets with random data to the autopilot. Source code is [TFUNIPAYLOAD.ino](/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino)
 
 #### TFUNIPAYLOAD_MINIMAL
 
