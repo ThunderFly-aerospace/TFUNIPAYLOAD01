@@ -1,13 +1,16 @@
-# TFUNIPAYLOAD
-Reference design of PX4 interface for a universal parameter measuring payload.
+# TFUNIPAYLOAD - universal interface for atmospheric sensor payload 
 
+Reference design of PX4 interface for a [TF-ATMON](https://www.thunderfly.cz/tf-atmon.html) payload.
 
 ![TFUNIPAYLOAD block-schematics](./doc/img/block_schematics.svg)
 
 
-## Connection
+The sensor is connected to the [TFUNIPAYLOAD](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD01) board by using serial port. 
+The ATmega in TFUNIPAYLOAD01 runs the Arduino firmware, which prepare [MAVLink](https://en.wikipedia.org/wiki/MAVLink) messages ready to logging and transport to TF-ATMON enabled GCS. 
 
-PX4 is capable to log some data from UART (Telemetry Port) port.  [Pixhawk standard connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) is following:
+## Connection example 
+
+PX4 is capable to log MAVLink data from UART (Telemetry Port) port. [Pixhawk standard connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) is following:
 
 | Pin        | Signal | Voltage levels  | Read/Write | Write |
 | ---------- |:------:| ---------------:|------|------|
@@ -18,34 +21,36 @@ PX4 is capable to log some data from UART (Telemetry Port) port.  [Pixhawk stand
 | 5 (blk)    | RTS (OUT) |   +3.3 V | -- | -- |
 | 6 (blk)    | GND       |   GND    | GND | GND |
 
+In order to data been received by PX4 autopilot, it should have an specific form. Explicitly needs to use a serial link with  [MAVLink v2](https://mavlink.io/en/) pakets. In that case the [Tunnel (#385)](https://mavlink.io/en/messages/common.html#TUNNEL) packets will be stored in autopilot's log file and forwarded to the GCS. 
 
-K tomu, aby data byla přijmuta autopilotem musí mít správnou formu. A to musí se po sériovce posílat [MAVLink v2](https://mavlink.io/en/) pakety. Logovány budou pakety [Tunnel (#385)](https://mavlink.io/en/messages/common.html#TUNNEL).
+The following library [c_library_v2](https://github.com/mavlink/c_library_v2), which is automatically generated from message definion files could be used. 
 
-Jde k tomu použít tato knihovna, která je automaticky generována z konfiguračních souborů: [c_library_v2](https://github.com/mavlink/c_library_v2)
+## Existing sensor devices using TF-ATMON system
 
-## Existující zařízení využívající TFATMON
-
-| Název zařízení | Typ dat | Popis |
+| Device identification | Data type | Description |
 |----------------|---------|-------|
-| TFPM01         | 1       | Senzor prachových částic |
-| TFHT01         | 2       | Senzor vlhkosti a teploty|
-| USTTHUNDERMILL01| 3      | Senzor intenzity elektrického pole |
-|                |         |                                    |
+| [TFPM01](https://github.com/ThunderFly-aerospace/TFPM01) | 1 | Particulate matter sensor |
+| [TFHT01](https://github.com/ThunderFly-aerospace/TFHT01) | 2 | Humidity and temperature sensor |
+| [USTTHUNDERMILL01](https://github.com/UniversalScientificTechnologies/THUNDERMILL01) | 3 | Electric field sensor |
+| AIRDOS03 | 4 | Semiconductor based ionising radiation spectrometer|
 
+## Firmware examples
 
-## Příklady
-Máme připravené dva příklady.
+There are multiple firmware examples for different use cases. 
 
 #### TFUNIPAYLOAD
+
 je příklad, který poslouchá MAVLINK zprávy z autopilota a posílá tunnel zprávy s náhodnými daty do autopilota. Zdrojový kód je [TFUNIPAYLOAD.ino](/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino)
 
 #### TFUNIPAYLOAD_MINIMAL
+
 Protože parserování zpráv je náročné na paměť, máme připravený přiklad, který pouze posílá data (HEARTBEAT a TUNNEL zprávy). Tento příklad nevyžaduje připojený TX (z autopilota) vodič. Je vhodný pro MCU s menším množstvím paměti.
 
 Příklad je [TFUNIPAYLOAD_MINIMAL.ino](/SW/arduino/src/TFUNIPAYLOAD_MINIMAL/TFUNIPAYLOAD_MINIMAL.ino)
 
 
 #### Funkce
+
 [Funkce na odeslání tunnel paketu](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/79eee22fe32725179d1df2b6ca72e901e2be1834/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino#L50)
 
 ```  mav.SendTunnelData(data, sizeof(data), 0, 1, 0); ```
@@ -80,7 +85,7 @@ Existuje několik možností, jak to zjistit.
 
 ### V QGC
 
-Zprávu nejsnáze lze zobrazit živě v [QGC](https://github.com/mavlink/qgroundcontrol/releases). Aby tento posutp fungoval, musí být splňeny dvě podmínky.
+Zprávu nejsnáze lze zobrazit živě v [QGC](https://github.com/mavlink/qgroundcontrol/releases). Aby tento posutp fungoval, musí být splněny dvě podmínky.
 
  1. Zpráva musí být broadcastovaná. Tj. zpráva musí mít nastavené cílové sysid a compid 0, 0.
  1. Počítač musí být připojený přes MAVLink instanci, která podporuje přeposílávání zpráv (např. portem TELEM1 - třeba pomocí modemu nebu UART-USB převodníkem)
@@ -92,7 +97,7 @@ Po otevření QGC připojíte autopilota k počítači (modemem/převodníkem). 
 ![obrazek](https://user-images.githubusercontent.com/5196729/99434203-cec17d00-290e-11eb-93a7-e089ba893775.png)
 
 
-### Pomocí konzole
+### Using the MAVLink console
 
 Výhoda tohoto postupu je, že to není závislé na nastavení broadcastování a zjistíte tím, jestli je zpráva přijatá a rozparserovaná autopilotem. Pokud ji zde uvidíte, tak bude logována (pokud je logování zapnuté). S tímto lze využít USB připojení.
 
@@ -111,13 +116,13 @@ Takto by měl vypadat výstup:
 ![mavlink tunnel uorb message](https://user-images.githubusercontent.com/5196729/99431661-6ae98500-290b-11eb-80a6-a08f8229d600.png)
 
 
-### Z logu
+### From a log file
 
 Zpráva je v autopilotu logována. Protože nástroje jako [Flight review](https://review.px4.io/) tato data neukazují, je potřeba k tomu použít jiné nástroje. Jedním z nich je [PlotJuggler](https://plotjuggler.io/), ve kterém lze otevřít log a zobrazit tunnel zprávu.
 
 Dalším způsobem, jak otevřít log je připravený [jupiter notebook](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/master/SW/LogViewer/ReadTunnelData.ipynb), kde lze otevřít zaznamenaný log a vypsat tunnel zprávy.
 
-## Omezení
+## Known limitations
 
   * Nezahlcení paměti autopilota zprávami je potřeba zajistit na straně payloadu
   * Tímto způsobem je možné připojit nejvýše 2 zařízení + modem, případně 3 zařízení bez modemu, limit vzniká na straně driveru mavlinku, který umí připojit nejvíce 3 instance mavlink zařízení.
