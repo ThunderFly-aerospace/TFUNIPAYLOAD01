@@ -44,10 +44,9 @@ TFUNIPAYLOAD.ino is basic example, which listens to MAVLikn messages from autopi
 
 #### TFUNIPAYLOAD_MINIMAL
 
-Protože parserování zpráv je náročné na paměť, máme připravený přiklad, který pouze posílá data (HEARTBEAT a TUNNEL zprávy). Tento příklad nevyžaduje připojený TX (z autopilota) vodič. Je vhodný pro MCU s menším množstvím paměti.
+Protože parserování zpráv je náročné na paměť, máme připravený přiklad, který pouze posílá data (HEARTBEAT a TUNNEL zprávy). Tento příklad nevyžaduje připojený TX (z autopilota) signál. Je proto vhodný pro MCU s menším množstvím paměti.
 
-Příklad je [TFUNIPAYLOAD_MINIMAL.ino](/SW/arduino/src/TFUNIPAYLOAD_MINIMAL/TFUNIPAYLOAD_MINIMAL.ino)
-
+Zdrojový kód je [TFUNIPAYLOAD_MINIMAL.ino](/SW/arduino/src/TFUNIPAYLOAD_MINIMAL/TFUNIPAYLOAD_MINIMAL.ino)
 
 #### Tunnel packet sending function
 
