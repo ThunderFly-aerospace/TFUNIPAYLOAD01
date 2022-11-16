@@ -117,9 +117,9 @@ Takto by měl vypadat výstup, pokud komunikace funguje:
 ![mavlink tunnel uorb message](https://user-images.githubusercontent.com/5196729/99431661-6ae98500-290b-11eb-80a6-a08f8229d600.png)
 
 
-### From a log file
+### From a uLog file
 
-Tunnel zpráva může být v autopilotu logována, ale protože nástroje jako např. [Flight review](https://review.px4.io/) tato data neukazují, tak je potřeba k  k tomu použít vhodný nástroj. Jedním z nich je [PlotJuggler](https://plotjuggler.io/), ve kterém lze otevřít log a zobrazit tunnel zprávu.
+Tunnel zpráva může být v autopilotu logována do běžného [formátu uLog](https://docs.px4.io/main/en/dev_log/ulog_file_format.html), ale protože nástroje jako např. [Flight review](https://review.px4.io/) tato data neukazují, tak je potřeba k  k tomu použít vhodný nástroj. Jedním z nich je [PlotJuggler](https://plotjuggler.io/), ve kterém lze otevřít log a zobrazit tunnel zprávu.
 
 Dalším způsobem, jak otevřít log je připravený [jupiter notebook](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/master/SW/LogViewer/ReadTunnelData.ipynb), kde lze otevřít zaznamenaný log a vypsat tunnel zprávy.
 
