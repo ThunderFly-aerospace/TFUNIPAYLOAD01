@@ -1,16 +1,16 @@
 # TFUNIPAYLOAD - universal interface for atmospheric sensor payload 
 
-Reference design of PX4 interface for a [TF-ATMON](https://www.thunderfly.cz/tf-atmon.html) payload.
+Reference design of PX4 interface for [TF-ATMON](https://www.thunderfly.cz/tf-atmon.html) payload.
 
 ![TFUNIPAYLOAD block-schematics](./doc/img/block_schematics.svg)
 
 
-The sensor is connected to the [TFUNIPAYLOAD](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD01) board by using serial port. 
-The ATmega in TFUNIPAYLOAD01 runs the Arduino firmware, which prepare [MAVLink](https://en.wikipedia.org/wiki/MAVLink) messages ready to logging and transport to TF-ATMON enabled GCS. 
+The sensor is connected to the [TFUNIPAYLOAD](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD01) board using a serial port. 
+ATmega in TFUNIPAYLOAD01 runs the Arduino firmware, which prepares [MAVLink](https://en.wikipedia.org/wiki/MAVLink) messages to be logged and transported to GCS running TF-ATMON. 
 
-## Connection example 
+## Example of wiring
 
-PX4 is capable to log MAVLink data from UART (Telemetry Port) port. [Pixhawk standard connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) is following:
+PX4 is capable to log MAVLink data from UART (Telemetry Port) port. [Pixhawk standard connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) is as follows:
 
 | Pin        | Signal | Voltage levels  | Read/Write | Write |
 | ---------- |:------:| ---------------:|------|------|
@@ -21,18 +21,18 @@ PX4 is capable to log MAVLink data from UART (Telemetry Port) port. [Pixhawk sta
 | 5 (blk)    | RTS (OUT) |   +3.3 V | -- | -- |
 | 6 (blk)    | GND       |   GND    | GND | GND |
 
-In order to data been received by PX4 autopilot, it should have an specific form. Explicitly needs to use a serial link with  [MAVLink v2](https://mavlink.io/en/) pakets. In that case the [Tunnel (#385)](https://mavlink.io/en/messages/common.html#TUNNEL) packets will be stored in autopilot's log file and forwarded to the GCS. 
+In order for data to be received by PX4 autopilot, it must have a specific form. Explicitly, it needs to use a serial link with  [MAVLink v2](https://mavlink.io/en/) packets. In that case the [Tunnel (#385)](https://mavlink.io/en/messages/common.html#TUNNEL) packets will be stored in autopilot's log file and forwarded to the GCS. 
 
-The following library [c_library_v2](https://github.com/mavlink/c_library_v2), which is automatically generated from message definion files could be used. 
+The following library [c_library_v2](https://github.com/mavlink/c_library_v2), which is automatically generated from message definion files, could be used. 
 
-## Existing sensor devices of TF-ATMON system
+## TF-ATMON system sensor devices
 
 | Device identification | Data type | Description |
 |----------------|---------|-------|
 | [TFPM01](https://github.com/ThunderFly-aerospace/TFPM01) | 1 | Particulate matter sensor |
 | [TFHT01](https://github.com/ThunderFly-aerospace/TFHT01) | 2 | Humidity and temperature sensor |
 | [THUNDERMILL01](https://github.com/UniversalScientificTechnologies/THUNDERMILL01) | 3 | Electric field sensor |
-| AIRDOS03 | 4 | Semiconductor based ionising radiation spectrometer|
+| AIRDOS03 | 4 | Semiconductor-based ionising radiation spectrometer|
 
 ## Firmware examples
 
@@ -40,23 +40,24 @@ There are multiple firmware examples for different use cases.
 
 #### TFUNIPAYLOAD
 
-TFUNIPAYLOAD.ino is basic example, which listens to MAVLikn messages from autopilot and sensd tunnel packets with random data to the autopilot. Source code is [TFUNIPAYLOAD.ino](/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino)
+[TFUNIPAYLOAD.ino](/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino) contains a basic example, which listens to MAVLikn messages from autopilot and sends tunnel packets with random data to the autopilot.
 
 #### TFUNIPAYLOAD_MINIMAL
 
-Protože parserování zpráv je náročné na paměť, máme připravený přiklad, který pouze posílá data ([HEARTBEAT](https://mavlink.io/en/messages/common.html#HEARTBEAT) a [TUNNEL](https://mavlink.io/en/messages/common.html#TUNNEL) zprávy). Tento příklad nevyžaduje připojený TX (z autopilota). Je proto vhodný pro MCU s menším množstvím paměti.
+Since message parsering requires a lot of memory, we have prepared an example, where only [HEARTBEAT](https://mavlink.io/en/messages/common.html#HEARTBEAT) and [TUNNEL](https://mavlink.io/en/messages/common.html#TUNNEL) messages are sent. This example does not require a connected TX (from autopilot) and it is therefore suitable for MCUs with less memory.
 
-Zdrojový kód je [TFUNIPAYLOAD_MINIMAL.ino](/SW/arduino/src/TFUNIPAYLOAD_MINIMAL/TFUNIPAYLOAD_MINIMAL.ino)
+Source code: [TFUNIPAYLOAD_MINIMAL.ino](/SW/arduino/src/TFUNIPAYLOAD_MINIMAL/TFUNIPAYLOAD_MINIMAL.ino)
 
 #### Tunnel packet sending function
 
-[Funkce na odeslání tunnel paketu](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/79eee22fe32725179d1df2b6ca72e901e2be1834/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino#L50)
+[Tunnel packet sending function](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/79eee22fe32725179d1df2b6ca72e901e2be1834/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino#L50)
 
 ```  mav.SendTunnelData(data, sizeof(data), 0, 1, 0); ```
-Tato funkce umožňuje poslat tunnel data do autopilota. Její argumenty jsou:
- * data ve formátu uint8_t [127]
- * délka dat
- * Typ dat (každý payload nebo typ logovaných dat bude mít své ID - na tom je potřeba se kooperativně domluvit, viz tabulka typů paylouadů výše - slouží pro snadné rozlišení různých snímačů.
+This function enables sending tunnel data to autopilot. It takes the following as its arguments:
+ * data in uint8_t [127] format
+ * data length
+ * data type (every payload or a type of logged data will have its ID - 
+ každý payload nebo typ logovaných dat bude mít své ID - na tom je potřeba se kooperativně domluvit, viz tabulka typů paylouadů výše - slouží pro snadné rozlišení různých snímačů.
  * Cílové sysid
  * Cílové compid
 
