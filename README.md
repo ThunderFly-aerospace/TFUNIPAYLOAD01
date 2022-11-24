@@ -70,32 +70,32 @@ In the autopilot’s PX4 firmware, it is necessary to correctly set the followin
 
 |     Parametr    | Hodnota | Popis |
 |-----------------|-----------|------|
-| [MAV_1_CONFIG](http://docs.px4.io/main/en/advanced_config/parameter_reference.html#mavlink)    | TELEM 2   | Port, na kterém se budou očekávat MAVLINK pakety. Lze nastavit jakýkoliv, volný, TELEM port |
-| [MAV_1_FORWARD](http://docs.px4.io/main/en/advanced_config/parameter_reference.html#mavlink)   | **1**     | Zapnutí forwardování zpráv z tohoto portu |
+| [MAV_1_CONFIG](http://docs.px4.io/main/en/advanced_config/parameter_reference.html#mavlink)    | TELEM 2   | The port on which MAVLink packets will be expected. Any free, TELEM port, can be set |
+| [MAV_1_FORWARD](http://docs.px4.io/main/en/advanced_config/parameter_reference.html#mavlink)   | **1**     | Enable message forwarding from this port|
 | [MAV_1_RADIO_CTL](http://docs.px4.io/main/en/advanced_config/parameter_reference.html#mavlink) | **0**     | |
 | [MAV_1_RATE](http://docs.px4.io/main/en/advanced_config/parameter_reference.html#mavlink)      | **0 B/s** | |
-| [SER_TEL2_BAUD](http://docs.px4.io/main/en/advanced_config/parameter_reference.html#serial)   |     57600 | Je potřeba konfigurovat port, který je nastavený v parametru `MAV_1_CONFIG`. Nastavení baudrate portu. |
+| [SER_TEL2_BAUD](http://docs.px4.io/main/en/advanced_config/parameter_reference.html#serial)   |     57600 | It is necessary to configure the port that is set in `MAV_1_CONFIG` parameter. Setting of baudrate port. |
 
-Jak nastavit parametry v PX4 je popsáno v [návodu](http://docs.px4.io/master/en/advanced_config/parameters.html#changing-a-parameter).
+How to set the parameters in PX4 is described in [manual](http://docs.px4.io/master/en/advanced_config/parameters.html#changing-a-parameter).
 
-## How to check, that autopilot correctly receives MAVLink messages?
+## How to check, that the autopilot correctly receives MAVLink messages?
 
-Existuje několik možností, jak zjistit, že posílání zpráv funguje správně.
+There are several options to find out whether the message sending is working correctly.
 
 ### Using the QGC
 
-Zprávu nejsnáze lze zobrazit živě v [QGC](https://github.com/mavlink/qgroundcontrol/releases). Aby tento posutp fungoval, musí být splněny dvě podmínky.
+The message can be easily viewed live in [QGC](https://github.com/mavlink/qgroundcontrol/releases). For this procedure to function, two conditions must be fullfiled.
 
- 1. Zpráva musí být broadcastovaná. Tj. zpráva musí mít nastavené cílové sysid a compid 0, 0.
- 1. Počítač musí být připojený přes MAVLink instanci, která podporuje přeposílávání zpráv (např. portem TELEM1 - třeba pomocí modemu nebo UART-USB převodníkem), USB v autopilotu přeposílání nepodporuje.
+ 1. The message must be broadcasted, meaning the message must have set its target sysid and compid to 0, 0.
+ 2. The computer must be connected via a MAVLink instance that supports message forwarding (e.g. via TELEM1 port using modem or UART-USB converter), autopilot's USB does not support it.
 
- > Pozor, tento postup nebude fungovat, pokud je autopilot připojen USB kabelem.
+ > Warning, this procedure will not work if the autopilot is connected via a USB cable.
 
-Po otevření QGC připojíte autopilota k počítači (modemem nebo externím USB převodníkem). Po spojení autopilota s QGC budou vidět živá data (například náklony autopilota). Následně kliknutím na logo QGC v levém horním rohu se otevře menu, kde vyberete `Analyze tools`. Následně otevřete `MAVLink inspector`. Uvidíte seznam všech správ.
+After opening QGC connect the autopilot to the computer (via modem or an external USB converter). Once the autopilot is connected live data (such as autopilot pitches) will become visible. A subsequent clicking on the logo in the top left corner will open a menu where you select `Analyze tools` and then open `MAVLink inspector` in order to see a list of all messages. 
 
 ![listener mavlin tunnel](https://user-images.githubusercontent.com/5196729/99434203-cec17d00-290e-11eb-93a7-e089ba893775.png)
 
-Seznam zpráv má při správné funkci obsahovat i zprávy TUNNEL. 
+The list of messages, when functioning correctly, should contain TUNNEL messages. 
 
 ### Using the MAVLink PX4 console
 
