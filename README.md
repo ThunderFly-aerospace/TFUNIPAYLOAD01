@@ -56,18 +56,17 @@ Source code: [TFUNIPAYLOAD_MINIMAL.ino](/SW/arduino/src/TFUNIPAYLOAD_MINIMAL/TFU
 This function enables sending tunnel data to autopilot. It takes the following as its arguments:
  * data in uint8_t [127] format
  * data length
- * data type (every payload or a type of logged data will have its ID - 
- každý payload nebo typ logovaných dat bude mít své ID - na tom je potřeba se kooperativně domluvit, viz tabulka typů paylouadů výše - slouží pro snadné rozlišení různých snímačů.
- * Cílové sysid
- * Cílové compid
+ * data type (every type of logged data will have its ID - it serves for easy differentiation of different sensors
+ * target sysid
+ * target compid
 
-Pokud je potřeba data pouze logovat, tak cílové sysid a compid musí odpovídat adrese autopilota. Ta obvykle je `sysid: 1, compid: 1`. Pokud je potřeba data logovat a posílat do GCS, je nutné nastavit broadcast. Takže `sysid: 1, compid: 0` nebo dokonce `sysid: 0, compid: 0`. 
+If the data only needs to be logged, the target sysid and compid must match the autopilot’s address, which is usually `sysid: 1, compid: 1`. If the data has to be logged and sent to GCS, broadcast must be set: `sysid: 1, compid: 0` nebo dokonce `sysid: 0, compid: 0`. 
 
-Autopilot má pouze omezené množství paměti (SDkarta). Proto je důležité zajistit na straně payloadu, že nedojde k jejímu  zaplnění v průběhu letu. Alternativně lze v autopilotu nastavit maximální bandwidth na MAVLink rozhraní. Není vyzkoušeno, co se stane při překročení nastavené úrovně [2021/09]. 
+The autopilot only has a limited amount of memory (SDcard) and it is therefore necessary to ensure, on the payload’s side, that it does not fill up during the flight. Alternatively, a maximum bandwidth on MAVLink interface can be set in the autopilot. It is not tested what happens when the level set is exceeded[2021/09]. 
 
 ## Autopilot configuration
 
-V PX4 firmware autopilota je potřeba správně nastavit následující parametry. MAV_1_FORWARD a další se zobrazí až po nastavení parametru MAV_1_CONFIG a rebootování PX4. 
+In the autopilot’s PX4 firmware, it is necessary to correctly set the following parameters (MAV_1_FORWARD and others will be visible only after setting the parameter MAV_1_CONFIG and rebooting the PX4): 
 
 |     Parametr    | Hodnota | Popis |
 |-----------------|-----------|------|
