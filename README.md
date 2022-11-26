@@ -23,7 +23,7 @@ PX4 is capable to log MAVLink data from UART (Telemetry Port) port. [Pixhawk sta
 
 In order for data to be received by PX4 autopilot, it must have a specific form. Explicitly, it needs to use a serial link with  [MAVLink v2](https://mavlink.io/en/) packets. In that case the [Tunnel (#385)](https://mavlink.io/en/messages/common.html#TUNNEL) packets will be stored in autopilot's log file and forwarded to the GCS. 
 
-The following library [c_library_v2](https://github.com/mavlink/c_library_v2), which is automatically generated from message definion files, could be used. 
+The following library [c_library_v2](https://github.com/mavlink/c_library_v2), which is automatically generated from message definition files, could be used. 
 
 ## TF-ATMON system sensor devices
 
@@ -44,7 +44,7 @@ There are multiple firmware examples for different use cases.
 
 #### TFUNIPAYLOAD_MINIMAL
 
-Since message parsering requires a lot of memory, we have prepared an example, where only [HEARTBEAT](https://mavlink.io/en/messages/common.html#HEARTBEAT) and [TUNNEL](https://mavlink.io/en/messages/common.html#TUNNEL) messages are sent. This example does not require a connected TX (from autopilot) and it is therefore suitable for MCUs with less memory.
+Since message parsing requires a lot of memory, we have prepared an example, where only [HEARTBEAT](https://mavlink.io/en/messages/common.html#HEARTBEAT) and [TUNNEL](https://mavlink.io/en/messages/common.html#TUNNEL) messages are sent. This example does not require a connected TX (from autopilot) and it is therefore suitable for MCUs with less memory.
 
 Source code: [TFUNIPAYLOAD_MINIMAL.ino](/SW/arduino/src/TFUNIPAYLOAD_MINIMAL/TFUNIPAYLOAD_MINIMAL.ino)
 
@@ -68,7 +68,7 @@ The autopilot only has a limited amount of memory (SDcard) and it is therefore n
 
 In the autopilot’s PX4 firmware, it is necessary to correctly set the following parameters (MAV_1_FORWARD and others will be visible only after setting the parameter MAV_1_CONFIG and rebooting the PX4): 
 
-|     Parametr    | Hodnota | Popis |
+|     Parametr    | Value | Description |
 |-----------------|-----------|------|
 | [MAV_1_CONFIG](http://docs.px4.io/main/en/advanced_config/parameter_reference.html#mavlink)    | TELEM 2   | The port on which MAVLink packets will be expected. Any free, TELEM port, can be set |
 | [MAV_1_FORWARD](http://docs.px4.io/main/en/advanced_config/parameter_reference.html#mavlink)   | **1**     | Enable message forwarding from this port|
@@ -84,7 +84,7 @@ There are several options to find out whether the message sending is working cor
 
 ### Using the QGC
 
-The message can be easily viewed live in [QGC](https://github.com/mavlink/qgroundcontrol/releases). For this procedure to function, two conditions must be fullfiled.
+The message can be easily viewed live in [QGC](https://github.com/mavlink/qgroundcontrol/releases). For this procedure to function, two conditions must be fulfilled.
 
  1. The message must be broadcasted, meaning the message must have set its target sysid and compid to 0, 0.
  2. The computer must be connected via a MAVLink instance that supports message forwarding (e.g. via TELEM1 port using modem or UART-USB converter), autopilot's USB does not support it.
@@ -99,32 +99,33 @@ The list of messages, when functioning correctly, should contain TUNNEL messages
 
 ### Using the MAVLink PX4 console
 
-Výhoda připojení přes [PX4 cosoli](https://docs.px4.io/main/en/debug/consoles.html) je v tom, že to není závislá na nastavení broadcastování a zjistíte tím, jestli je zpráva přijatá a rozparserovaná autopilotem. Pokud ji zde uvidíte, tak bude i logována (v případě, že je logování zapnuté). S tímto postupem lze využít USB propojení kabelem do autopilota.
+An advantage of connecting via [PX4 console](https://docs.px4.io/main/en/debug/consoles.html) lies in its independence on broadcasting setting and a possibility of checking whether the message is received and parsed by the autopilot. If the message is visible here (and the logging is enabled) it is at the same time already logged. With this procedure a USB cable connection to the autopilot can be used. 
 
-Do konzole autopilota se lze dostat pomocí python [skriptu](https://github.com/ThunderFly-aerospace/PX4Firmware/blob/master/Tools/mavlink_shell.py). Nebo pomocí [QGC](https://github.com/mavlink/qgroundcontrol/releases).
+Autopilot console can be entered using a following python [script](https://github.com/ThunderFly-aerospace/PX4Firmware/blob/master/Tools/mavlink_shell.py) or using [QGC](https://github.com/mavlink/qgroundcontrol/releases).
 
- * Pokud používáte python skript, tak stačí spustit python3 skript s parametrem zvolené sériovky, na které je připojený autopilot/modem.
- * V případě QGC, je potřeba v QGC otevřít konzoli autopilota. Nahoře kliknout na logo QGC, tam je `Analyze tools` a následně vybrat konzoli.
+ * In case of using python script it is enough to run the python3 script with a parameter of chosen serial link to which the autopilot/modem is connected.
+ * In case of using QGC, the QGC must be opened in the autopilot console by clicking on QGC logo (on the top), choosing `Analyze tools` and choosing console.
 
-V konzoli lze získat přijatou zprávu pomocí příkazu
+The received message can be then retrieved using a following command:
 
 `listener mavlink_tunnel`
 
-Tento příkaz zobrazí aktuální tunnel zprávu. Pokud chcete, aby se vypisovala nová zpráva sama, stačí přidat parametr `-n 100`, čímž se bude vypisovat 100 zpráv.
+The command displays the current tunnel message. Adding -n 100` parameter will cause listing of 100 messages (and the new message will display by itself).
 
-Takto by měl vypadat výstup, pokud komunikace funguje:
+If the communication is working properly, the output should look like this:
 
 ![mavlink tunnel uorb message](https://user-images.githubusercontent.com/5196729/99431661-6ae98500-290b-11eb-80a6-a08f8229d600.png)
 
 
-### From a uLog file
+### From an uLog file
 
-Tunnel zpráva může být v autopilotu logována do běžného [formátu uLog](https://docs.px4.io/main/en/dev_log/ulog_file_format.html), ale protože nástroje jako např. [Flight review](https://review.px4.io/) tato data neukazují, tak je potřeba k  k tomu použít vhodný nástroj. Jedním z nich je [PlotJuggler](https://plotjuggler.io/), ve kterém lze otevřít log a zobrazit tunnel zprávu.
-
-Dalším způsobem, jak otevřít log je připravený [jupiter notebook](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/master/SW/LogViewer/ReadTunnelData.ipynb), kde lze otevřít zaznamenaný log a vypsat tunnel zprávy.
+The tunnel message can be logged into autopilot in a standard [uLog format](https://docs.px4.io/main/en/dev_log/ulog_file_format.html). However, because tools like [Flight review](https://review.px4.io/) are unable to display such data format, it is necessary to overcome this problem using a suitable tool. One option is using the [PlotJuggler](https://plotjuggler.io/). 
+Another possibility for opening the log is the [jupiter notebook](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/master/SW/LogViewer/ReadTunnelData.ipynb).
 
 ## Known limitations
 
-  * Nezahlcení paměti autopilota zprávami je potřeba zajistit na straně payloadu
-  * Tímto způsobem je možné připojit nejvýše 2 zařízení + modem, případně 3 zařízení bez modemu, limit vzniká na straně driveru mavlinku, který umí připojit nejvíce 3 instance mavlink zařízení a také díky omezeném počtu UART rozhraní autopilota
+  * Avoiding overloading the autopilot's memory by messages must be ensured on the payload side
+  * A maximum of 2 devices + modem or 3 devices without modem can be connected in this way. The limitation is caused by mavlink driver that is only able to connect a maximum of 3 instances of mavlink devices and also due to a limited number of UART interfaces of the autopilot.
+  * At the messages' input from payload and output to [sik modem](https://github.com/ThunderFly-aerospace/TFSIK01) same type of mavlink messages that would differ only in the frequency of transmission cannot exist. This means that it is not possible to simply reduce the amount of data that 
+
   * Na vstupu zpráv z payloadu a vystupu do [sik modemu](https://github.com/ThunderFly-aerospace/TFSIK01) nesmí existovat stejny typ mavlink zprav, ktere se budou lisit pouze cetnosti prenosu. Tj. nelze jednoduse redukovat množství dat, ktera se prenaseji na zem vuci mnozstvi logovanych dat. Pokud je potřeba logovat podrobnější data (s větší četností), tak je nutné logovat jinou MAVLink zprávu. 
