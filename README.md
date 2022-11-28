@@ -1,12 +1,12 @@
 # TFUNIPAYLOAD - universal interface for atmospheric sensor payload 
 
-Reference design of PX4 interface for [TF-ATMON](https://www.thunderfly.cz/tf-atmon.html) payload.
+Reference design of PX4 interface for generic [TF-ATMON](https://www.thunderfly.cz/tf-atmon.html) payload detector.
 
 ![TFUNIPAYLOAD block-schematics](./doc/img/block_schematics.svg)
 
 
 The sensor is connected to the [TFUNIPAYLOAD](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD01) board using a serial port. 
-ATmega in TFUNIPAYLOAD01 runs the Arduino firmware, which prepares [MAVLink](https://en.wikipedia.org/wiki/MAVLink) messages to be logged and transported to GCS running TF-ATMON. 
+ATmega in TFUNIPAYLOAD01 runs the Arduino firmware, which prepares [MAVLink](https://en.wikipedia.org/wiki/MAVLink) messages to be logged and transported to GCS running TF-ATMON software. 
 
 ## Example of wiring
 
@@ -27,6 +27,8 @@ The following library [c_library_v2](https://github.com/mavlink/c_library_v2), w
 
 ## TF-ATMON system sensor devices
 
+The following table summarises existing (in production) sensor devices. Other sensors are under testing.
+
 | Device identification | Data type | Description |
 |----------------|---------|-------|
 | [TFPM01](https://github.com/ThunderFly-aerospace/TFPM01) | 1 | Particulate matter sensor |
@@ -36,11 +38,11 @@ The following library [c_library_v2](https://github.com/mavlink/c_library_v2), w
 
 ## Firmware examples
 
-There are multiple firmware examples for different use cases. 
+There are multiple Arduino based firmware examples for different use cases. 
 
 #### TFUNIPAYLOAD
 
-[TFUNIPAYLOAD.ino](/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino) contains a basic example, which listens to MAVLikn messages from autopilot and sends tunnel packets with random data to the autopilot.
+[TFUNIPAYLOAD.ino](/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino) contains a basic example, which listens to MAVLink messages from autopilot and sends tunnel packets with random data to the autopilot.
 
 #### TFUNIPAYLOAD_MINIMAL
 
@@ -60,9 +62,9 @@ This function enables sending tunnel data to autopilot. It takes the following a
  * target sysid
  * target compid
 
-If the data only needs to be logged, the target sysid and compid must match the autopilot’s address, which is usually `sysid: 1, compid: 1`. If the data has to be logged and sent to GCS, broadcast must be set: `sysid: 1, compid: 0` nebo dokonce `sysid: 0, compid: 0`. 
+If the data only needs to be logged, the target sysid and compid must match the autopilot’s address, which is usually `sysid: 1, compid: 1`. If the data has to be logged and sent to GCS, broadcast must be set: `sysid: 1, compid: 0` or better `sysid: 0, compid: 0`. 
 
-The autopilot only has a limited amount of memory (SDcard) and it is therefore necessary to ensure, on the payload’s side, that it does not fill up during the flight. Alternatively, a maximum bandwidth on MAVLink interface can be set in the autopilot. It is not tested what happens when the level set is exceeded[2021/09]. 
+The autopilot only has a limited amount of storage memory (SDcard) and it is therefore necessary to ensure, on the payload’s side, that it does not fill up during the flight. Alternatively, a maximum bandwidth on MAVLink interface can be set in the autopilot. It is not tested what happens when the level set is exceeded[2021/09]. 
 
 ## Autopilot configuration
 
