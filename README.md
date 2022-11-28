@@ -91,9 +91,9 @@ The message can be easily viewed live in [QGC](https://github.com/mavlink/qgroun
  1. The message must be broadcasted, meaning the message must have set its target sysid and compid to 0, 0.
  2. The computer must be connected via a MAVLink instance that supports message forwarding (e.g. via TELEM1 port using modem or UART-USB converter), autopilot's USB does not support it.
 
- > Warning, this procedure will not work if the autopilot is connected via a USB cable.
+ > Warning, this procedure will not work if the autopilot is connected via a USB cable to the Pixhawk's USB port.
 
-After opening QGC connect the autopilot to the computer (via modem or an external USB converter). Once the autopilot is connected live data (such as autopilot pitches) will become visible. A subsequent clicking on the logo in the top left corner will open a menu where you select `Analyze tools` and then open `MAVLink inspector` in order to see a list of all messages. 
+After opening QGC connect the autopilot to the computer (via RF modem or an external USB converter connected to serial port). Once the autopilot is connected live data (such as autopilot attitude) will become visible. A subsequent clicking on the QGC logo in the top left corner will open a menu where you select `Analyze tools` and then open `MAVLink inspector` in order to see a list of all messages. 
 
 ![listener mavlin tunnel](https://user-images.githubusercontent.com/5196729/99434203-cec17d00-290e-11eb-93a7-e089ba893775.png)
 
