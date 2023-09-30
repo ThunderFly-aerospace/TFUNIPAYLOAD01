@@ -10,7 +10,7 @@ ATmega in TFUNIPAYLOAD01 runs the Arduino firmware, which prepares [MAVLink](htt
 
 ## Example of wiring
 
-PX4 is capable to log MAVLink data from UART (Telemetry Port) port. [Pixhawk standard connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) is as follows:
+PX4 is capable of logging MAVLink data from the UART (Telemetry Port) port. [Pixhawk standard connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) is as follows:
 
 | Pin        | Signal | Voltage levels  | Read/Write | Write |
 | ---------- |:------:| ---------------:|------|------|
@@ -22,6 +22,7 @@ PX4 is capable to log MAVLink data from UART (Telemetry Port) port. [Pixhawk sta
 | 6 (blk)    | GND       |   GND    | GND | GND |
 
 In order for data to be received by PX4 autopilot, it must have a specific form. Explicitly, it needs to use a serial link with  [MAVLink v2](https://mavlink.io/en/) packets. In that case, the [Tunnel (#385)](https://mavlink.io/en/messages/common.html#TUNNEL) packets will be stored in autopilot's log file and forwarded to the GCS. 
+The [TFUSBSERIAL01](https://github.com/ThunderFly-aerospace/TFUSBSERIAL01) hardware could be used to easily check for correct wiring. 
 
 The following library [c_library_v2](https://github.com/mavlink/c_library_v2), which is automatically generated from message definition files, could be used. 
 
@@ -64,7 +65,7 @@ This function enables sending tunnel data to autopilot. It takes the following a
 
 If the data only needs to be logged, the target sysid and compid must match the autopilot’s address, which is usually `sysid: 1, compid: 1`. If the data has to be logged and sent to GCS, broadcast must be set: `sysid: 1, compid: 0` or better `sysid: 0, compid: 0`. 
 
-The autopilot only has a limited amount of storage memory (SDcard) and it is therefore necessary to ensure, on the payload’s side, that it does not fill up during the flight. Alternatively, a maximum bandwidth on MAVLink interface can be set in the autopilot. It is not tested what happens when the level set is exceeded[2021/09]. 
+The autopilot only has a limited amount of storage memory (SD card) and it is therefore necessary to ensure, on the payload’s side, that it does not fill up during the flight. Alternatively, a maximum bandwidth on the MAVLink interface can be set in the autopilot. It is not tested what happens when the level set is exceeded[2021/09]. 
 
 ## Autopilot configuration
 
@@ -106,7 +107,7 @@ An advantage of connecting via [PX4 console](https://docs.px4.io/main/en/debug/c
 Autopilot console can be entered using the following python [script](https://github.com/ThunderFly-aerospace/PX4Firmware/blob/master/Tools/mavlink_shell.py) or using [QGC](https://github.com/mavlink/qgroundcontrol/releases).
 
  * In the case of using Python script it is enough to run the python3 script with a parameter of the chosen serial link to which the autopilot/modem is connected.
- * In the case of using QGC, the QGC must be opened in the autopilot console by clicking on QGC logo (on the top), choosing `Analyze tools`, and choosing a console.
+ * In the case of using QGC, the QGC must be opened in the autopilot console by clicking on the QGC logo (on the top), choosing `Analyze tools`, and choosing a console.
 
 The received message can be then retrieved using the following command:
 
@@ -127,5 +128,5 @@ Another possibility for opening the log is the [jupiter notebook](https://github
 ## Known limitations
 
   * Avoiding overloading the autopilot's memory with messages must be ensured on the payload side
-  * A maximum of 2 devices + modem or 3 devices without modem can be connected in this way. The limitation is caused by Mavlink driver that is only able to connect a maximum of 3 instances of Mavlink devices and also due to a limited number of UART interfaces of the autopilot.
+  * A maximum of 2 devices + modem or 3 devices without modem can be connected in this way. The limitation is caused by the Mavlink driver that is only able to connect a maximum of 3 instances of Mavlink devices and also due to a limited number of UART interfaces of the autopilot.
   * It is not possible for the input of payload messages and output to [sik modem](https://github.com/ThunderFly-aerospace/TFSIK01) to have the same type of MAVLink messages (stream) that would differ only in the number of messages per second. This means that it is not possible to simply select a data stream to be transmitted to the ground from the data stream intended for logging. If it is necessary to log more detailed data (with higher frequency) another MAVLink message must be logged.
