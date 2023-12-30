@@ -1,9 +1,8 @@
 # TFUNIPAYLOAD - universal interface for atmospheric sensor payload 
 
-Reference design of PX4 interface for generic [TF-ATMON](https://www.thunderfly.cz/tf-atmon.html) payload detector.
+Reference design of PX4 interface for generic [TF-ATMON](https://www.thunderfly.cz/tf-atmon.html) compatible payload detector. The purpose of this design is to connect a sensor to the [TF-ATMON](https://github.com/ThunderFly-aerospace/TF-ATMON) system despite the fact the sensor does not have any driver in flight stack (autopilot firmware) but at the same time, it is suitable for atmospheric measurement.
 
 ![TFUNIPAYLOAD block-schematics](./doc/img/block_schematics.svg)
-
 
 The sensor is connected to the [TFUNIPAYLOAD](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD01) board using a serial port. 
 ATmega in TFUNIPAYLOAD01 runs the Arduino firmware, which prepares [MAVLink](https://en.wikipedia.org/wiki/MAVLink) messages to be logged and transported to GCS running TF-ATMON software. 
@@ -21,21 +20,10 @@ PX4 is capable of logging MAVLink data from the UART (Telemetry Port) port. [Pix
 | 5 (blk)    | RTS (OUT) |   +3.3 V | -- | -- |
 | 6 (blk)    | GND       |   GND    | GND | GND |
 
-In order for data to be received by PX4 autopilot, it must have a specific form. Explicitly, it needs to use a serial link with  [MAVLink v2](https://mavlink.io/en/) packets. In that case, the [Tunnel (#385)](https://mavlink.io/en/messages/common.html#TUNNEL) packets will be stored in autopilot's log file and forwarded to the GCS. 
+For data to be received by PX4 autopilot, it must have a specific form. Explicitly, it needs to use a serial link with  [MAVLink v2](https://mavlink.io/en/) packets. In that case, the [Tunnel (#385)](https://mavlink.io/en/messages/common.html#TUNNEL) packets will be stored in autopilot's log file and forwarded to the GCS. 
 The [TFUSBSERIAL01](https://github.com/ThunderFly-aerospace/TFUSBSERIAL01) hardware could be used to easily check for correct wiring. 
 
 The following library [c_library_v2](https://github.com/mavlink/c_library_v2), which is automatically generated from message definition files, could be used. 
-
-## TF-ATMON system sensor devices
-
-The following table summarises existing (in production) sensor devices. Other sensors are under testing.
-
-| Device identification | Data type | Description |
-|----------------|---------|-------|
-| [TFPM01](https://github.com/ThunderFly-aerospace/TFPM01) | 1 | Particulate matter sensor |
-| [TFHT01](https://github.com/ThunderFly-aerospace/TFHT01) | 2 | Humidity and temperature sensor |
-| [THUNDERMILL01](https://github.com/UniversalScientificTechnologies/THUNDERMILL01) | 3 | Electric field sensor |
-| [AIRDOS03](https://www.ust.cz/UST-dosimeters/AIRDOS/#airdos03-uavdos) | 4 | Semiconductor-based ionising radiation spectrometer|
 
 ## Firmware examples
 
