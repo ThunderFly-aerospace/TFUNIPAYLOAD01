@@ -1,4 +1,6 @@
 Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+"C3","15p","C_0805_2012Metric",153.0763,-67.5229,0.0000,top
+"C4","15p","C_0805_2012Metric",153.0763,-70.5329,0.0000,top
 "C5","22u","C_0805_2012Metric",125.5237,-138.1487,0.0000,top
 "C6","47u","C_0805_2012Metric",125.5237,-141.1587,0.0000,top
 "C7","10u","C_0805_2012Metric",125.5237,-144.1687,0.0000,top
@@ -41,4 +43,4 @@ Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 "SW3","KMT031","KMT031 NGJ LHS C&K",140.4387,-157.5437,0.0000,top
 "U1","TPS631000DRLR","SOT-583-8",139.8337,-161.5437,0.0000,top
 "U3","TPS631000DRLR","SOT-583-8",143.5237,-161.5437,0.0000,top
-"Y1","8 MHz","Crystal_HC49-4H_Vertical",155.5805,-77.9657,0.0000,top
+"Y1","8 MHz","Crystal_SMD_3225-4Pin_3.2x2.5mm",157.9263,-68.2929,0.0000,top

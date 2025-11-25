@@ -1,8 +1,6 @@
 Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 "C1","10uF","C_0805_2012Metric",172.0963,-92.5029,90.0000,bottom
 "C2","4u7","C_0805_2012Metric",172.4063,-102.9529,0.0000,bottom
-"C3","15pF","C_0805_2012Metric",152.7219,-77.9657,180.0000,bottom
-"C4","15pF","C_0805_2012Metric",163.2883,-77.9657,0.0000,bottom
 "C8","10uF","CP_EIA-3216-18_Kemet-A",155.1781,-100.8217,0.0000,bottom
 "C9","100nF","C_0805_2012Metric",155.3635,-98.5357,0.0000,bottom
 "C10","100nF","C_0805_2012Metric",155.5591,-81.2637,0.0000,bottom
@@ -15,7 +13,6 @@ Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 "FID5","Fiducial","Fiducial_1mm_Mask2mm",172.3815,-83.6045,180.0000,bottom
 "J1","SM06B-GHS-TB","JST_GH_SM06B-GHS-TB_1x06-1MP_P1.25mm_Horizontal",186.6563,-96.2029,-90.0000,bottom
 "J2","SM08B-GHS-TB","JST_GH_SM08B-GHS-TB_1x08-1MP_P1.25mm_Horizontal",186.6563,-82.4869,-90.0000,bottom
-"J7","SM03B-GHS-TB","JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal",186.6563,-106.8709,-90.0000,bottom
 "L1","NL03KT330","L_0603_1608Metric_Pad1.05x0.95mm_HandSolder",173.9055,-95.8981,-90.0000,bottom
 "Q1","BC817-25","SOT-23",151.6043,-119.8249,180.0000,bottom
 "Q2","BC817-25","SOT-23",146.5243,-119.8249,180.0000,bottom

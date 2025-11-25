@@ -69,8 +69,8 @@ Eurocircuits class: 4B
 
 Components count: (SMD/THT)
 
-- Top: 36/7 (SMD + THT)
-- Bottom: 39/0 (SMD)
+- Top: 39/6 (SMD + THT)
+- Bottom: 36/0 (SMD)
 
 Defined tracks:
 
@@ -101,7 +101,6 @@ Used vias:
 
 Holes (excluding vias):
 
-- 0.8 mm (31 mils) (2)
 - 1.0 mm (39 mils) (30)
 - 3.0 mm (118 mils) (4)
 
@@ -113,7 +112,6 @@ Drill tools (including vias and computing adjusts and rounding):
 
 - 0.5 mm (20 mils) (243)
 - 0.6 mm (24 mils) (2)
-- 0.9 mm (35 mils) (2)
 - 1.1 mm (43 mils) (30)
 - 3.1 mm (122 mils) (4)
 
@@ -126,9 +124,9 @@ The stencil thickness is  0.12 mm.
 
 | Side   | Pads with paste | Area [mm²] | Paste [g] |
 |--------|-----------------|------------|-----------|
-| Top    |             102 |     125.96 |      0.63 |
-| Bottom |             134 |     153.11 |      0.76 |
-| Total  |             236 |     279.07 |      1.39 |
+| Top    |             110 |     138.01 |      0.69 |
+| Bottom |             125 |     139.26 |      0.69 |
+| Total  |             235 |     277.28 |      1.38 |
 
 Note: this is just an approximation to the theoretical value. Margins of the solder mask and waste aren't computed.
 
