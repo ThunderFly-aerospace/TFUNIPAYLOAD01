@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/github/workspace/hw/sch_pcb/TFUNIPAYLOAD01.kicad_sch</source>
-    <date>2025-12-27T18:05:39+0000</date>
+    <date>2025-12-27T20:10:12+0000</date>
     <tool>Eeschema 9.0.6+1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -2117,7 +2117,7 @@
     </library>
   </libraries>
   <nets>
-    <net code="1" name="+3.3V" class="MLAB_power">
+    <net code="1" name="+3.3V" class="Power">
       <node ref="C10" pin="1" pintype="passive"/>
       <node ref="C11" pin="1" pintype="passive"/>
       <node ref="C12" pin="1" pintype="passive"/>
@@ -2143,20 +2143,20 @@
       <node ref="U2" pin="38" pinfunction="VCC" pintype="passive"/>
       <node ref="U2" pin="5" pinfunction="VCC" pintype="power_in"/>
     </net>
-    <net code="2" name="+5V" class="MLAB_power">
+    <net code="2" name="+5V" class="Power">
       <node ref="C14" pin="1" pintype="passive"/>
       <node ref="C15" pin="1" pintype="passive"/>
       <node ref="D7" pin="2" pinfunction="A" pintype="passive"/>
-      <node ref="J4" pin="1" pintype="input"/>
       <node ref="J5" pin="3" pintype="input"/>
       <node ref="J5" pin="4" pintype="input"/>
-      <node ref="J6" pin="1" pintype="input"/>
       <node ref="R22" pin="1" pintype="passive"/>
       <node ref="U3" pin="1" pinfunction="VOUT" pintype="power_out"/>
     </net>
-    <net code="3" name="+VSW" class="MLAB_power">
+    <net code="3" name="+VSW" class="Power">
       <node ref="C13" pin="1" pintype="passive"/>
       <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="J4" pin="1" pintype="input"/>
+      <node ref="J6" pin="1" pintype="input"/>
       <node ref="L1" pin="2" pintype="passive"/>
       <node ref="U1" pin="4" pinfunction="VIN" pintype="power_in"/>
       <node ref="U1" pin="5" pinfunction="EN" pintype="passive"/>
