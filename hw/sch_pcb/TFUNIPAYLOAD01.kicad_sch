@@ -7730,6 +7730,17 @@
 		)
 		(uuid "4e77132b-f60e-4b20-9869-b48854efe0c6")
 	)
+	(text "Telemetry Peripheral\nConnector"
+		(exclude_from_sim no)
+		(at 25.654 22.352 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(href "#1")
+		)
+		(uuid "5de93005-274a-45dd-b1fa-bbcebd038dc6")
+	)
 	(text "+5V"
 		(exclude_from_sim no)
 		(at 60.96 158.75 0)
@@ -10760,6 +10771,16 @@
 			(type default)
 		)
 		(uuid "f9a7bccf-74ad-44d4-a8e3-b590da618f61")
+	)
+	(wire
+		(pts
+			(xy 265.43 176.53) (xy 265.43 180.34)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "fa051310-c5e0-4641-89e7-139ecd5791e3")
 	)
 	(wire
 		(pts
@@ -13951,6 +13972,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+VSW")
+		(at 265.43 176.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1841bbf1-dbd8-4b3a-9686-3e7b3f6015f7")
+		(property "Reference" "#PWR017"
+			(at 265.43 180.34 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+VSW"
+			(at 265.43 172.72 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 265.43 176.53 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 265.43 176.53 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 265.43 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4efe27fe-6dde-45d7-9886-c3fb65b9b259")
+		)
+		(instances
+			(project "TFUNIPAYLOAD01"
+				(path "/0a87ced0-2af2-43c5-a56c-218f7013d76f"
+					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 336.55 82.55 0)
 		(unit 1)
@@ -14359,72 +14446,6 @@
 			(project "TFUNIPAYLOAD01"
 				(path "/0a87ced0-2af2-43c5-a56c-218f7013d76f"
 					(reference "D7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 265.43 213.36 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2caab986-ee2b-4f72-871b-b71f8e0b02fe")
-		(property "Reference" "#PWR064"
-			(at 265.43 217.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 265.43 209.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 265.43 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 265.43 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 265.43 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e4aac187-a4ca-4a08-b766-fed5958d237c")
-		)
-		(instances
-			(project "TFUNIPAYLOAD01"
-				(path "/0a87ced0-2af2-43c5-a56c-218f7013d76f"
-					(reference "#PWR064")
 					(unit 1)
 				)
 			)
@@ -20263,71 +20284,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 265.43 180.34 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c9ec3a47-860a-4b0d-982f-2efec8433981")
-		(property "Reference" "#PWR051"
-			(at 265.43 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 265.811 175.9458 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 265.43 180.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 265.43 180.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 265.43 180.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "199c2b3a-77d2-4604-a5fd-4505d0d5fd61")
-		)
-		(instances
-			(project "TFUNIPAYLOAD01"
-				(path "/0a87ced0-2af2-43c5-a56c-218f7013d76f"
-					(reference "#PWR051")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 389.89 102.87 0)
 		(unit 1)
@@ -20387,6 +20343,72 @@
 			(project "TFUNIPAYLOAD01"
 				(path "/0a87ced0-2af2-43c5-a56c-218f7013d76f"
 					(reference "#PWR022")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+VSW")
+		(at 265.43 213.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ce50624e-b269-4b3c-9ce4-18213a9d4503")
+		(property "Reference" "#PWR041"
+			(at 265.43 217.17 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+VSW"
+			(at 265.43 209.55 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 265.43 213.36 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 265.43 213.36 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 265.43 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cd9a643e-3aff-4425-9988-f6541ac72876")
+		)
+		(instances
+			(project "TFUNIPAYLOAD01"
+				(path "/0a87ced0-2af2-43c5-a56c-218f7013d76f"
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
