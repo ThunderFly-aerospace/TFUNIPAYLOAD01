@@ -19705,95 +19705,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:Fiducial")
-		(at 391.16 50.8 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b6ba6b32-1b61-4973-ba0e-823a5d51bcf1")
-		(property "Reference" "FID6"
-			(at 393.319 49.5879 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Fiducial"
-			(at 393.319 52.0121 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
-			(at 391.16 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 391.16 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 391.16 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "UST_ID" ""
-			(at 391.16 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "USTSIPIN02"
-				(path "/0a87ced0-2af2-43c5-a56c-218f7013d76f"
-					(reference "FID6")
-					(unit 1)
-				)
-			)
-			(project "PIND02"
-				(path "/2ae32537-a16f-4c5b-a56b-c6dddfb8ddb4"
-					(reference "FID2")
-					(unit 1)
-				)
-			)
-			(project "AIRDOS04_base"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "FID4")
-					(unit 1)
-				)
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/e191f86f-5b54-4b8b-aca6-37b81226f3b6"
-					(reference "FID4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+VSW")
 		(at 107.95 22.86 0)
 		(unit 1)
@@ -20215,95 +20126,6 @@
 			(project "TFUNIPAYLOAD01"
 				(path "/0a87ced0-2af2-43c5-a56c-218f7013d76f"
 					(reference "R6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:Fiducial")
-		(at 391.16 44.45 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c04e1018-25e3-4d37-97d4-ec924b4e7a2f")
-		(property "Reference" "FID4"
-			(at 393.319 43.2379 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Fiducial"
-			(at 393.319 45.6621 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
-			(at 391.16 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 391.16 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 391.16 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "UST_ID" ""
-			(at 391.16 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "USTSIPIN02"
-				(path "/0a87ced0-2af2-43c5-a56c-218f7013d76f"
-					(reference "FID4")
-					(unit 1)
-				)
-			)
-			(project "PIND02"
-				(path "/2ae32537-a16f-4c5b-a56b-c6dddfb8ddb4"
-					(reference "FID2")
-					(unit 1)
-				)
-			)
-			(project "AIRDOS04_base"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "FID4")
-					(unit 1)
-				)
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/e191f86f-5b54-4b8b-aca6-37b81226f3b6"
-					(reference "FID4")
 					(unit 1)
 				)
 			)
@@ -21956,95 +21778,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:Fiducial")
-		(at 378.46 50.8 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e164a208-a9f9-46a1-bfe0-00a12f4d66b2")
-		(property "Reference" "FID5"
-			(at 380.619 49.5879 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Fiducial"
-			(at 380.619 52.0121 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
-			(at 378.46 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 378.46 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 378.46 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "UST_ID" ""
-			(at 378.46 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "USTSIPIN02"
-				(path "/0a87ced0-2af2-43c5-a56c-218f7013d76f"
-					(reference "FID5")
-					(unit 1)
-				)
-			)
-			(project "PIND02"
-				(path "/2ae32537-a16f-4c5b-a56b-c6dddfb8ddb4"
-					(reference "FID2")
-					(unit 1)
-				)
-			)
-			(project "AIRDOS04_base"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "FID4")
-					(unit 1)
-				)
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/e191f86f-5b54-4b8b-aca6-37b81226f3b6"
-					(reference "FID4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 355.6 187.96 180)
 		(unit 1)
@@ -23063,7 +22796,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "fd6b4513-f1ab-45cf-80d1-7bea52a339fe")
 		(property "Reference" "J3"
 			(at 171.45 152.6286 0)
@@ -23082,7 +22815,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Mlab_Pin_Headers:SMD_2x03"
+		(property "Footprint" "Mlab_Pin_Headers:SMD_2x03_WO_paste"
 			(at 171.45 156.21 0)
 			(effects
 				(font
