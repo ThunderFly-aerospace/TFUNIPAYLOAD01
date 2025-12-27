@@ -65,8 +65,8 @@ Eurocircuits class: 4A
 
 Components count: (SMD/THT)
 
-- Top: 3/5 (SMD + THT)
-- Bottom: 71/1 (SMD + THT)
+- Top: 1/5 (SMD + THT)
+- Bottom: 71/0 (SMD)
 
 Defined tracks:
 
@@ -109,7 +109,7 @@ The stencil thickness is  0.12 mm.
 
 | Side   | Pads with paste | Area [mm²] | Paste [g] |
 |--------|-----------------|------------|-----------|
-| Total  |             230 |     271.34 |      1.35 |
+| Total  |             224 |     257.40 |      1.28 |
 
 Note: this is just an approximation to the theoretical value. Margins of the solder mask and waste aren't computed.
 

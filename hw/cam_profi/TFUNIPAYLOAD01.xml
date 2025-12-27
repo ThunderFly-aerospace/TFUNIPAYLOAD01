@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/github/workspace/hw/sch_pcb/TFUNIPAYLOAD01.kicad_sch</source>
-    <date>2025-12-27T00:12:16+0000</date>
+    <date>2025-12-27T18:05:39+0000</date>
     <tool>Eeschema 9.0.6+1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -505,66 +505,6 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamps>3247d27a-f411-474f-8c4c-872f17cc887f</tstamps>
     </comp>
-    <comp ref="FID4">
-      <value>Fiducial</value>
-      <footprint>Fiducial:Fiducial_1mm_Mask2mm</footprint>
-      <datasheet>~</datasheet>
-      <fields>
-        <field name="UST_ID"/>
-        <field name="Footprint">Fiducial:Fiducial_1mm_Mask2mm</field>
-        <field name="Datasheet">~</field>
-        <field name="Description"/>
-      </fields>
-      <libsource lib="Mechanical" part="Fiducial" description="Fiducial Marker"/>
-      <property name="UST_ID" value=""/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="TFUNIPAYLOAD01.kicad_sch"/>
-      <property name="exclude_from_bom"/>
-      <property name="ki_keywords" value="fiducial marker"/>
-      <property name="ki_fp_filters" value="Fiducial*"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>c04e1018-25e3-4d37-97d4-ec924b4e7a2f</tstamps>
-    </comp>
-    <comp ref="FID5">
-      <value>Fiducial</value>
-      <footprint>Fiducial:Fiducial_1mm_Mask2mm</footprint>
-      <datasheet>~</datasheet>
-      <fields>
-        <field name="UST_ID"/>
-        <field name="Footprint">Fiducial:Fiducial_1mm_Mask2mm</field>
-        <field name="Datasheet">~</field>
-        <field name="Description"/>
-      </fields>
-      <libsource lib="Mechanical" part="Fiducial" description="Fiducial Marker"/>
-      <property name="UST_ID" value=""/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="TFUNIPAYLOAD01.kicad_sch"/>
-      <property name="exclude_from_bom"/>
-      <property name="ki_keywords" value="fiducial marker"/>
-      <property name="ki_fp_filters" value="Fiducial*"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>e164a208-a9f9-46a1-bfe0-00a12f4d66b2</tstamps>
-    </comp>
-    <comp ref="FID6">
-      <value>Fiducial</value>
-      <footprint>Fiducial:Fiducial_1mm_Mask2mm</footprint>
-      <datasheet>~</datasheet>
-      <fields>
-        <field name="UST_ID"/>
-        <field name="Footprint">Fiducial:Fiducial_1mm_Mask2mm</field>
-        <field name="Datasheet">~</field>
-        <field name="Description"/>
-      </fields>
-      <libsource lib="Mechanical" part="Fiducial" description="Fiducial Marker"/>
-      <property name="UST_ID" value=""/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="TFUNIPAYLOAD01.kicad_sch"/>
-      <property name="exclude_from_bom"/>
-      <property name="ki_keywords" value="fiducial marker"/>
-      <property name="ki_fp_filters" value="Fiducial*"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>b6ba6b32-1b61-4973-ba0e-823a5d51bcf1</tstamps>
-    </comp>
     <comp ref="J1">
       <value>SM06B-GHS-TB</value>
       <footprint>Connector_JST:JST_GH_SM06B-GHS-TB_1x06-1MP_P1.25mm_Horizontal</footprint>
@@ -601,10 +541,10 @@
     </comp>
     <comp ref="J3">
       <value>HEADER_2x03</value>
-      <footprint>Mlab_Pin_Headers:SMD_2x03</footprint>
+      <footprint>Mlab_Pin_Headers:SMD_2x03_WO_paste</footprint>
       <fields>
         <field name="UST_ID">x</field>
-        <field name="Footprint">Mlab_Pin_Headers:SMD_2x03</field>
+        <field name="Footprint">Mlab_Pin_Headers:SMD_2x03_WO_paste</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
@@ -613,7 +553,6 @@
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="TFUNIPAYLOAD01.kicad_sch"/>
       <property name="exclude_from_bom"/>
-      <property name="dnp"/>
       <property name="ki_keywords" value="2x03, header, connector, pinheader"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>fd6b4513-f1ab-45cf-80d1-7bea52a339fe</tstamps>

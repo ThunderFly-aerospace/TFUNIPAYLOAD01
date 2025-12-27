@@ -1,7 +1,5 @@
 Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
-"FID1","Fiducial","Fiducial_1mm_Mask2mm",3.0226,-8.2296,0.0000,top
-"FID2","Fiducial","Fiducial_1mm_Mask2mm",25.2476,13.6144,-90.0000,top
-"FID6","Fiducial","Fiducial_1mm_Mask2mm",19.2333,67.6997,0.0000,top
+"J3","HEADER_2x03","SMD_2x03_WO_paste",48.7172,25.5524,180.0000,top
 "J5","HEADER_2x15","PinSocket_2x15_P2.54mm_Vertical",23.1440,52.6488,90.0000,top
 "M1","HOLE","MountingHole_3mm",10.1600,50.8000,0.0000,top
 "M2","HOLE","MountingHole_3mm",71.1200,50.8000,0.0000,top
