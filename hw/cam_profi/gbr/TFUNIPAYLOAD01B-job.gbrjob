@@ -3,9 +3,9 @@
     "GenerationSoftware": {
       "Vendor": "KiCad",
       "Application": "Pcbnew",
-      "Version": "9.0.1+1"
+      "Version": "9.0.6+1"
     },
-    "CreationDate": "2025-11-25T21:21:07+00:00"
+    "CreationDate": "2025-12-27T00:11:24+00:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
@@ -14,10 +14,10 @@
       "Revision": "rev?"
     },
     "Size": {
-      "X": 91.132,
-      "Y": 50.492
+      "X": 70.762,
+      "Y": 50.442
     },
-    "LayerNumber": 4,
+    "LayerNumber": 2,
     "BoardThickness": 1.66,
     "Finish": "HAL lead-free"
   },
@@ -27,16 +27,6 @@
       "PadToPad": 0.2,
       "PadToTrack": 0.2,
       "TrackToTrack": 0.2,
-      "MinLineWidth": 0.25,
-      "TrackToRegion": 0.2,
-      "RegionToRegion": 0.2
-    },
-    {
-      "Layers": "Inner",
-      "PadToPad": 0.2,
-      "PadToTrack": 0.2,
-      "TrackToTrack": 0.2,
-      "MinLineWidth": 0.4,
       "TrackToRegion": 0.2,
       "RegionToRegion": 0.2
     }
@@ -53,18 +43,8 @@
       "FilePolarity": "Positive"
     },
     {
-      "Path": "TFUNIPAYLOAD01-In1_Cu.gbr",
-      "FileFunction": "Copper,L5,Inr",
-      "FilePolarity": "Positive"
-    },
-    {
-      "Path": "TFUNIPAYLOAD01-In2_Cu.gbr",
-      "FileFunction": "Copper,L7,Inr",
-      "FilePolarity": "Positive"
-    },
-    {
       "Path": "TFUNIPAYLOAD01-B_Cu.gbr",
-      "FileFunction": "Copper,L4,Bot",
+      "FileFunction": "Copper,L2,Bot",
       "FilePolarity": "Positive"
     },
     {
@@ -119,34 +99,10 @@
     },
     {
       "Type": "Dielectric",
-      "Thickness": 0.5,
+      "Thickness": 1.57,
       "Material": "FR4",
-      "Name": "F.Cu/In1.Cu",
-      "Notes": "Type: dielectric layer 1 (from F.Cu to In1.Cu)"
-    },
-    {
-      "Type": "Copper",
-      "Thickness": 0.035,
-      "Name": "In1.Cu"
-    },
-    {
-      "Type": "Dielectric",
-      "Thickness": 0.5,
-      "Material": "FR4",
-      "Name": "In1.Cu/In2.Cu",
-      "Notes": "Type: dielectric layer 2 (from In1.Cu to In2.Cu)"
-    },
-    {
-      "Type": "Copper",
-      "Thickness": 0.035,
-      "Name": "In2.Cu"
-    },
-    {
-      "Type": "Dielectric",
-      "Thickness": 0.5,
-      "Material": "FR4",
-      "Name": "In2.Cu/B.Cu",
-      "Notes": "Type: dielectric layer 3 (from In2.Cu to B.Cu)"
+      "Name": "F.Cu/B.Cu",
+      "Notes": "Type: dielectric layer 1 (from F.Cu to B.Cu)"
     },
     {
       "Type": "Copper",
