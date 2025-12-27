@@ -10892,7 +10892,7 @@
 		)
 		(uuid "0e337ec3-5531-4b0d-9137-7002c226e8d4")
 	)
-	(label "#CTS"
+	(label "~{CTS}"
 		(at 36.83 39.37 180)
 		(effects
 			(font
@@ -10941,6 +10941,16 @@
 			(justify left bottom)
 		)
 		(uuid "2025532f-4690-4f06-88f3-1a153333a13c")
+	)
+	(label "~{RST}_PRG"
+		(at 156.21 161.29 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "248d444d-6e05-4c37-9fe6-d96786694b76")
 	)
 	(label "~{RST}_EXT"
 		(at 173.99 64.77 0)
@@ -11161,16 +11171,6 @@
 			(justify right bottom)
 		)
 		(uuid "6354b069-1e8e-405e-aaac-c767e842f735")
-	)
-	(label "RST#_P"
-		(at 156.21 161.29 0)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify left bottom)
-		)
-		(uuid "6aff7dc5-da3e-4388-99f9-0f67f0f41e75")
 	)
 	(label "TIMEPULSE"
 		(at 232.41 143.51 0)
@@ -11542,7 +11542,7 @@
 		)
 		(uuid "ddececd5-d2cb-458e-92f5-1398472c7c1f")
 	)
-	(label "#RTS"
+	(label "~{RTS}"
 		(at 240.03 77.47 180)
 		(effects
 			(font
@@ -11582,7 +11582,7 @@
 		)
 		(uuid "e0e2a912-fd19-4244-8915-1b1e095933b6")
 	)
-	(label "#RTS"
+	(label "~{RTS}"
 		(at 33.02 36.83 180)
 		(effects
 			(font
@@ -11632,7 +11632,7 @@
 		)
 		(uuid "ee86799a-899a-4107-bc7f-e950f5e40a35")
 	)
-	(label "#CTS"
+	(label "~{CTS}"
 		(at 240.03 74.93 180)
 		(effects
 			(font
