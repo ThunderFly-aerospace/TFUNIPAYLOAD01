@@ -10730,7 +10730,7 @@
 		)
 		(uuid "0f713cb7-4004-4506-9ee2-2baef1c0858b")
 	)
-	(label "PC6_D2"
+	(label "LED2"
 		(at 233.68 125.73 0)
 		(effects
 			(font
@@ -10940,7 +10940,7 @@
 		)
 		(uuid "51390678-74da-44d5-a933-1b01586f0aa8")
 	)
-	(label "PC7_D3"
+	(label "LED3"
 		(at 308.61 97.79 0)
 		(effects
 			(font
@@ -10960,7 +10960,7 @@
 		)
 		(uuid "59529976-5f66-486e-a7a4-cc786af17a9a")
 	)
-	(label "PC7_D3"
+	(label "LED3"
 		(at 233.68 128.27 0)
 		(effects
 			(font
@@ -11360,7 +11360,7 @@
 		)
 		(uuid "d401fc2d-0bb4-4e3e-a354-c5663bfb3230")
 	)
-	(label "PC5_D1"
+	(label "LED1"
 		(at 358.14 92.71 0)
 		(effects
 			(font
@@ -11420,7 +11420,7 @@
 		)
 		(uuid "e1b71b14-18e4-456a-adce-344e1fb1b3ff")
 	)
-	(label "PC5_D1"
+	(label "LED1"
 		(at 233.68 123.19 0)
 		(effects
 			(font
@@ -11430,7 +11430,7 @@
 		)
 		(uuid "e7a5ef53-0e5b-452c-8af8-6f4fcd604b0e")
 	)
-	(label "PC6_D2"
+	(label "LED2"
 		(at 306.07 72.39 0)
 		(effects
 			(font
