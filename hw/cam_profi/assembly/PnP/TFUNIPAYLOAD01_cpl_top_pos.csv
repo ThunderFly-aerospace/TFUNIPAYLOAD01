@@ -1,6 +1,6 @@
 Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 "J3","HEADER_2x03","SMD_2x03_WO_paste",48.7172,25.5524,180.0000,top
-"J5","HEADER_2x15","PinSocket_2x15_P2.54mm_Vertical",23.1440,52.6488,90.0000,top
+"J5","HEADER_2x15","Straight_2x15",40.6400,52.0700,90.0000,top
 "M1","HOLE","MountingHole_3mm",10.1600,50.8000,0.0000,top
 "M2","HOLE","MountingHole_3mm",71.1200,50.8000,0.0000,top
 "M3","HOLE","MountingHole_3mm",10.1600,10.1600,0.0000,top

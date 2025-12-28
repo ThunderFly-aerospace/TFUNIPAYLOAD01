@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/github/workspace/hw/sch_pcb/TFUNIPAYLOAD01.kicad_sch</source>
-    <date>2025-12-27T21:41:11+0000</date>
+    <date>2025-12-27T23:03:53+0000</date>
     <tool>Eeschema 9.0.6+1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -352,11 +352,11 @@
     </comp>
     <comp ref="D3">
       <value>BLUE</value>
-      <footprint>LED_SMD:LED_1206_3216Metric</footprint>
+      <footprint>Mlab_D:LED_1206_mill</footprint>
       <datasheet>~</datasheet>
       <fields>
         <field name="UST_ID">5c70984512875079b91f8898</field>
-        <field name="Footprint">LED_SMD:LED_1206_3216Metric</field>
+        <field name="Footprint">Mlab_D:LED_1206_mill</field>
         <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
@@ -371,11 +371,11 @@
     </comp>
     <comp ref="D4">
       <value>RED</value>
-      <footprint>LED_SMD:LED_1206_3216Metric</footprint>
+      <footprint>Mlab_D:LED_1206_mill</footprint>
       <datasheet>~</datasheet>
       <fields>
         <field name="UST_ID">5c70984412875079b91f8896</field>
-        <field name="Footprint">LED_SMD:LED_1206_3216Metric</field>
+        <field name="Footprint">Mlab_D:LED_1206_mill</field>
         <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
@@ -390,11 +390,11 @@
     </comp>
     <comp ref="D5">
       <value>RED</value>
-      <footprint>LED_SMD:LED_1206_3216Metric</footprint>
+      <footprint>Mlab_D:LED_1206_mill</footprint>
       <datasheet>~</datasheet>
       <fields>
         <field name="UST_ID">5c70984412875079b91f8896</field>
-        <field name="Footprint">LED_SMD:LED_1206_3216Metric</field>
+        <field name="Footprint">Mlab_D:LED_1206_mill</field>
         <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
@@ -409,11 +409,11 @@
     </comp>
     <comp ref="D6">
       <value>GREEN</value>
-      <footprint>LED_SMD:LED_1206_3216Metric</footprint>
+      <footprint>Mlab_D:LED_1206_mill</footprint>
       <datasheet>~</datasheet>
       <fields>
         <field name="UST_ID">5c70984412875079b91f8895</field>
-        <field name="Footprint">LED_SMD:LED_1206_3216Metric</field>
+        <field name="Footprint">Mlab_D:LED_1206_mill</field>
         <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
@@ -428,11 +428,11 @@
     </comp>
     <comp ref="D7">
       <value>RED</value>
-      <footprint>LED_SMD:LED_1206_3216Metric</footprint>
+      <footprint>Mlab_D:LED_1206_mill</footprint>
       <datasheet>~</datasheet>
       <fields>
         <field name="UST_ID">5c70984412875079b91f8896</field>
-        <field name="Footprint">LED_SMD:LED_1206_3216Metric</field>
+        <field name="Footprint">Mlab_D:LED_1206_mill</field>
         <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
@@ -577,10 +577,10 @@
     </comp>
     <comp ref="J5">
       <value>HEADER_2x15</value>
-      <footprint>Connector_PinSocket_2.54mm:PinSocket_2x15_P2.54mm_Vertical</footprint>
+      <footprint>Mlab_Pin_Headers:Straight_2x15</footprint>
       <fields>
         <field name="UST_ID">68226dbfee7fc534862c67d1</field>
-        <field name="Footprint">Connector_PinSocket_2.54mm:PinSocket_2x15_P2.54mm_Vertical</field>
+        <field name="Footprint">Mlab_Pin_Headers:Straight_2x15</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
@@ -799,25 +799,6 @@
       <property name="ki_fp_filters" value="SOT?23*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>695b8cc0-c45a-4a70-9ea4-be73195c3754</tstamps>
-    </comp>
-    <comp ref="Q3">
-      <value>BC817-25</value>
-      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
-      <datasheet>~</datasheet>
-      <fields>
-        <field name="UST_ID">5c70984712875079b91f8aea</field>
-        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
-        <field name="Datasheet">~</field>
-        <field name="Description"/>
-      </fields>
-      <libsource lib="Transistor_BJT" part="BC817" description="0.8A Ic, 45V Vce, NPN Transistor, SOT-23"/>
-      <property name="UST_ID" value="5c70984712875079b91f8aea"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="TFUNIPAYLOAD01.kicad_sch"/>
-      <property name="ki_keywords" value="NPN Transistor"/>
-      <property name="ki_fp_filters" value="SOT?23*"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>3201d6e2-a7c7-4cf6-aa67-f7f9205ecef7</tstamps>
     </comp>
     <comp ref="R1">
       <value>100R</value>
@@ -1100,24 +1081,6 @@
       <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>bd8fa4eb-cc3b-4d25-9f80-6c475fc6f724</tstamps>
-    </comp>
-    <comp ref="R16">
-      <value>10k</value>
-      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
-      <fields>
-        <field name="UST_ID">5c70984512875079b91f8962</field>
-        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
-        <field name="Datasheet"/>
-        <field name="Description"/>
-      </fields>
-      <libsource lib="Device" part="R" description="Resistor"/>
-      <property name="UST_ID" value="5c70984512875079b91f8962"/>
-      <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="TFUNIPAYLOAD01.kicad_sch"/>
-      <property name="ki_keywords" value="R res resistor"/>
-      <property name="ki_fp_filters" value="R_*"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamps>fd3e0823-a4a6-42b2-9a29-2670362732e8</tstamps>
     </comp>
     <comp ref="R17">
       <value>100R</value>
@@ -2124,7 +2087,6 @@
       <node ref="C6" pin="1" pintype="passive"/>
       <node ref="C7" pin="1" pintype="passive"/>
       <node ref="D5" pin="2" pinfunction="A" pintype="passive"/>
-      <node ref="D6" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="J3" pin="2" pintype="input"/>
       <node ref="J5" pin="25" pintype="input"/>
       <node ref="J5" pin="26" pintype="input"/>
@@ -2146,6 +2108,8 @@
     <net code="2" name="+5V" class="Power">
       <node ref="C14" pin="1" pintype="passive"/>
       <node ref="C15" pin="1" pintype="passive"/>
+      <node ref="D3" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D4" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="D7" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="J5" pin="3" pintype="input"/>
       <node ref="J5" pin="4" pintype="input"/>
@@ -2251,7 +2215,7 @@
       <node ref="U2" pin="25" pinfunction="PC6" pintype="bidirectional"/>
     </net>
     <net code="23" name="/PC7_D3" class="Default">
-      <node ref="R16" pin="1" pintype="passive"/>
+      <node ref="R15" pin="2" pintype="passive"/>
       <node ref="U2" pin="26" pinfunction="PC7" pintype="bidirectional"/>
     </net>
     <net code="24" name="/RX0" class="Default">
@@ -2334,6 +2298,7 @@
       <node ref="C8" pin="2" pintype="passive"/>
       <node ref="C9" pin="2" pintype="passive"/>
       <node ref="D2" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D6" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="J1" pin="6" pintype="input"/>
       <node ref="J1" pin="MP" pintype="input"/>
       <node ref="J2" pin="8" pintype="input"/>
@@ -2356,7 +2321,6 @@
       <node ref="M4" pin="1" pintype="input"/>
       <node ref="Q1" pin="2" pinfunction="E" pintype="passive"/>
       <node ref="Q2" pin="2" pinfunction="E" pintype="passive"/>
-      <node ref="Q3" pin="2" pinfunction="E" pintype="passive"/>
       <node ref="R11" pin="2" pintype="passive"/>
       <node ref="R14" pin="2" pintype="passive"/>
       <node ref="R23" pin="2" pintype="passive"/>
@@ -2394,9 +2358,9 @@
       <node ref="D5" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="R14" pin="1" pintype="passive"/>
     </net>
-    <net code="42" name="Net-(D6-K)" class="Default">
-      <node ref="D6" pin="1" pinfunction="K" pintype="passive"/>
-      <node ref="R15" pin="2" pintype="passive"/>
+    <net code="42" name="Net-(D6-A)" class="Default">
+      <node ref="D6" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R15" pin="1" pintype="passive"/>
     </net>
     <net code="43" name="Net-(D7-K)" class="Default">
       <node ref="D7" pin="1" pinfunction="K" pintype="passive"/>
@@ -2466,61 +2430,49 @@
       <node ref="Q2" pin="3" pinfunction="C" pintype="passive"/>
       <node ref="R8" pin="1" pintype="passive"/>
     </net>
-    <net code="60" name="Net-(Q3-B)" class="Default">
-      <node ref="Q3" pin="1" pinfunction="B" pintype="input"/>
-      <node ref="R16" pin="2" pintype="passive"/>
-    </net>
-    <net code="61" name="Net-(Q3-C)" class="Default">
-      <node ref="Q3" pin="3" pinfunction="C" pintype="passive"/>
-      <node ref="R15" pin="1" pintype="passive"/>
-    </net>
-    <net code="62" name="Net-(U1-LX1)" class="Default">
+    <net code="60" name="Net-(U1-LX1)" class="Default">
       <node ref="L2" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="U1" pin="3" pinfunction="LX1" pintype="passive"/>
     </net>
-    <net code="63" name="Net-(U1-LX2)" class="Default">
+    <net code="61" name="Net-(U1-LX2)" class="Default">
       <node ref="L2" pin="2" pinfunction="2" pintype="passive"/>
       <node ref="U1" pin="2" pinfunction="LX2" pintype="passive"/>
     </net>
-    <net code="64" name="Net-(U2-AREF)" class="Default">
+    <net code="62" name="Net-(U2-AREF)" class="Default">
       <node ref="C8" pin="1" pintype="passive"/>
       <node ref="C9" pin="1" pintype="passive"/>
       <node ref="U2" pin="29" pinfunction="AREF" pintype="passive"/>
     </net>
-    <net code="65" name="Net-(U2-PC3)" class="Default">
+    <net code="63" name="Net-(U2-PC3)" class="Default">
       <node ref="TP1" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="U2" pin="22" pinfunction="PC3" pintype="bidirectional"/>
     </net>
-    <net code="66" name="Net-(U2-PC4)" class="Default">
+    <net code="64" name="Net-(U2-PC4)" class="Default">
       <node ref="TP2" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="U2" pin="23" pinfunction="PC4" pintype="bidirectional"/>
     </net>
-    <net code="67" name="Net-(U2-XTAL1)" class="Default">
+    <net code="65" name="Net-(U2-XTAL1)" class="Default">
       <node ref="C3" pin="1" pintype="passive"/>
       <node ref="U2" pin="8" pinfunction="XTAL1" pintype="input"/>
       <node ref="Y1" pin="3" pinfunction="3" pintype="passive"/>
     </net>
-    <net code="68" name="Net-(U2-XTAL2)" class="Default">
+    <net code="66" name="Net-(U2-XTAL2)" class="Default">
       <node ref="C4" pin="1" pintype="passive"/>
       <node ref="U2" pin="7" pinfunction="XTAL2" pintype="output"/>
       <node ref="Y1" pin="1" pinfunction="1" pintype="passive"/>
     </net>
-    <net code="69" name="Net-(U3-LX1)" class="Default">
+    <net code="67" name="Net-(U3-LX1)" class="Default">
       <node ref="L3" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="U3" pin="3" pinfunction="LX1" pintype="passive"/>
     </net>
-    <net code="70" name="Net-(U3-LX2)" class="Default">
+    <net code="68" name="Net-(U3-LX2)" class="Default">
       <node ref="L3" pin="2" pinfunction="2" pintype="passive"/>
       <node ref="U3" pin="2" pinfunction="LX2" pintype="passive"/>
     </net>
-    <net code="71" name="Vin" class="Default">
-      <node ref="D3" pin="2" pinfunction="A" pintype="passive"/>
-      <node ref="D4" pin="2" pinfunction="A" pintype="passive"/>
-    </net>
-    <net code="72" name="unconnected-(U2-PA2-Pad35)" class="Default">
+    <net code="69" name="unconnected-(U2-PA2-Pad35)" class="Default">
       <node ref="U2" pin="35" pinfunction="PA2" pintype="bidirectional+no_connect"/>
     </net>
-    <net code="73" name="unconnected-(U2-PB2-Pad42)" class="Default">
+    <net code="70" name="unconnected-(U2-PB2-Pad42)" class="Default">
       <node ref="U2" pin="42" pinfunction="PB2" pintype="bidirectional+no_connect"/>
     </net>
   </nets>
