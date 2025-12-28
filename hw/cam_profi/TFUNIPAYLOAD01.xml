@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/github/workspace/hw/sch_pcb/TFUNIPAYLOAD01.kicad_sch</source>
-    <date>2025-12-27T23:03:53+0000</date>
+    <date>2025-12-28T14:23:32+0000</date>
     <tool>Eeschema 9.0.6+1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -157,23 +157,23 @@
       <tstamps>15aa788c-7d5e-4e79-bcb7-41317ac76459</tstamps>
     </comp>
     <comp ref="C8">
-      <value>10uF</value>
-      <footprint>Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A</footprint>
-      <datasheet>https://eu.mouser.com/datasheet/2/40/TAJ-3165264.pdf</datasheet>
+      <value>10u</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
       <fields>
-        <field name="UST_ID">65089dd0462c6d9e720542b3</field>
-        <field name="Footprint">Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A</field>
-        <field name="Datasheet">https://eu.mouser.com/datasheet/2/40/TAJ-3165264.pdf</field>
+        <field name="UST_ID">5c70984712875079b91f8b53</field>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
-      <libsource lib="Device" part="C_Polarized_Small" description="Polarized capacitor, small symbol"/>
-      <property name="UST_ID" value="65089dd0462c6d9e720542b3"/>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="UST_ID" value="5c70984712875079b91f8b53"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="TFUNIPAYLOAD01.kicad_sch"/>
-      <property name="ki_keywords" value="cap capacitor"/>
-      <property name="ki_fp_filters" value="CP_*"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamps>6414621b-99ad-48d4-ba0e-6a813bb09b7e</tstamps>
+      <tstamps>cbc24ac8-e00e-405e-83cf-1e7f55101d08</tstamps>
     </comp>
     <comp ref="C9">
       <value>100nF</value>
@@ -1235,11 +1235,11 @@
     </comp>
     <comp ref="R25">
       <value>100R</value>
-      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
         <field name="UST_ID">5c70984512875079b91f8956</field>
-        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
         <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
@@ -1273,11 +1273,11 @@
     </comp>
     <comp ref="R27">
       <value>100R</value>
-      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
         <field name="UST_ID">5c70984512875079b91f8956</field>
-        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
         <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
@@ -1292,11 +1292,11 @@
     </comp>
     <comp ref="R28">
       <value>100R</value>
-      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
         <field name="UST_ID">5c70984512875079b91f8956</field>
-        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
         <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
@@ -1311,11 +1311,11 @@
     </comp>
     <comp ref="R29">
       <value>100R</value>
-      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
         <field name="UST_ID">5c70984512875079b91f8956</field>
-        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
         <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
@@ -1330,11 +1330,11 @@
     </comp>
     <comp ref="R30">
       <value>100R</value>
-      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
         <field name="UST_ID">5c70984512875079b91f8956</field>
-        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
         <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
@@ -1549,24 +1549,6 @@
         <field name="Footprint"/>
         <field name="Datasheet">~</field>
         <field name="Description">Unpolarized capacitor</field>
-      </fields>
-      <pins>
-        <pin num="1" name="" type="passive"/>
-        <pin num="2" name="" type="passive"/>
-      </pins>
-    </libpart>
-    <libpart lib="Device" part="C_Polarized_Small">
-      <description>Polarized capacitor, small symbol</description>
-      <docs>~</docs>
-      <footprints>
-        <fp>CP_*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">C</field>
-        <field name="Value">C_Polarized_Small</field>
-        <field name="Footprint"/>
-        <field name="Datasheet">~</field>
-        <field name="Description">Polarized capacitor, small symbol</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -2140,19 +2122,19 @@
       <node ref="U3" pin="8" pinfunction="FB" pintype="passive"/>
     </net>
     <net code="6" name="/A0" class="Default">
-      <node ref="J5" pin="9" pintype="input"/>
+      <node ref="J5" pin="10" pintype="input"/>
       <node ref="U2" pin="37" pinfunction="PA0" pintype="bidirectional"/>
     </net>
     <net code="7" name="/A1" class="Default">
-      <node ref="J5" pin="11" pintype="input"/>
+      <node ref="J5" pin="12" pintype="input"/>
       <node ref="U2" pin="36" pinfunction="PA1" pintype="bidirectional"/>
     </net>
     <net code="8" name="/B0" class="Default">
-      <node ref="J5" pin="15" pintype="input"/>
+      <node ref="J5" pin="16" pintype="input"/>
       <node ref="U2" pin="40" pinfunction="PB0" pintype="bidirectional"/>
     </net>
     <net code="9" name="/B1" class="Default">
-      <node ref="J5" pin="13" pintype="input"/>
+      <node ref="J5" pin="14" pintype="input"/>
       <node ref="U2" pin="41" pinfunction="PB1" pintype="bidirectional"/>
     </net>
     <net code="10" name="/BTN_USER_A" class="Default">
@@ -2166,11 +2148,11 @@
       <node ref="U2" pin="30" pinfunction="PA7" pintype="bidirectional"/>
     </net>
     <net code="12" name="/C0" class="Default">
-      <node ref="J5" pin="19" pintype="input"/>
+      <node ref="J5" pin="20" pintype="input"/>
       <node ref="U2" pin="21" pinfunction="PC2" pintype="bidirectional"/>
     </net>
     <net code="13" name="/C1" class="Default">
-      <node ref="J5" pin="17" pintype="input"/>
+      <node ref="J5" pin="18" pintype="input"/>
       <node ref="U2" pin="16" pinfunction="PD7" pintype="bidirectional"/>
     </net>
     <net code="14" name="/CS1" class="Default">
@@ -2186,7 +2168,7 @@
       <node ref="U2" pin="14" pinfunction="PD5" pintype="bidirectional"/>
     </net>
     <net code="17" name="/EXT_DETECTION" class="Default">
-      <node ref="J5" pin="8" pintype="input"/>
+      <node ref="J5" pin="7" pintype="input"/>
       <node ref="R26" pin="2" pintype="passive"/>
       <node ref="U2" pin="34" pinfunction="PA3" pintype="bidirectional"/>
     </net>
@@ -2196,13 +2178,13 @@
     </net>
     <net code="19" name="/MISO" class="Default">
       <node ref="J3" pin="1" pintype="input"/>
-      <node ref="J5" pin="18" pintype="input"/>
+      <node ref="J5" pin="17" pintype="input"/>
       <node ref="R27" pin="2" pintype="passive"/>
       <node ref="U2" pin="2" pinfunction="PB6" pintype="bidirectional"/>
     </net>
     <net code="20" name="/MOSI" class="Default">
       <node ref="J3" pin="4" pintype="input"/>
-      <node ref="J5" pin="16" pintype="input"/>
+      <node ref="J5" pin="15" pintype="input"/>
       <node ref="R28" pin="2" pintype="passive"/>
       <node ref="U2" pin="1" pinfunction="PB5" pintype="bidirectional"/>
     </net>
@@ -2223,7 +2205,7 @@
       <node ref="U2" pin="9" pinfunction="PD0" pintype="bidirectional"/>
     </net>
     <net code="25" name="/RX1" class="Default">
-      <node ref="J5" pin="12" pintype="input"/>
+      <node ref="J5" pin="11" pintype="input"/>
       <node ref="R21" pin="1" pintype="passive"/>
       <node ref="U2" pin="11" pinfunction="PD2" pintype="bidirectional"/>
     </net>
@@ -2237,7 +2219,7 @@
     </net>
     <net code="27" name="/SCLK" class="Default">
       <node ref="J3" pin="3" pintype="input"/>
-      <node ref="J5" pin="20" pintype="input"/>
+      <node ref="J5" pin="19" pintype="input"/>
       <node ref="R25" pin="2" pintype="passive"/>
       <node ref="U2" pin="3" pinfunction="PB7" pintype="bidirectional"/>
     </net>
@@ -2258,7 +2240,7 @@
       <node ref="U2" pin="10" pinfunction="PD1" pintype="bidirectional"/>
     </net>
     <net code="31" name="/TX1" class="Default">
-      <node ref="J5" pin="14" pintype="input"/>
+      <node ref="J5" pin="13" pintype="input"/>
       <node ref="R20" pin="1" pintype="passive"/>
       <node ref="U2" pin="12" pinfunction="PD3" pintype="bidirectional"/>
     </net>
@@ -2269,7 +2251,7 @@
     </net>
     <net code="33" name="/~{RST}_EXT" class="Default">
       <node ref="C2" pin="2" pintype="passive"/>
-      <node ref="J5" pin="10" pintype="input"/>
+      <node ref="J5" pin="9" pintype="input"/>
       <node ref="JP1" pin="1" pinfunction="A" pintype="passive"/>
     </net>
     <net code="34" name="/~{RST}_PRG" class="Default">
@@ -2312,7 +2294,7 @@
       <node ref="J5" pin="22" pintype="input"/>
       <node ref="J5" pin="29" pintype="input"/>
       <node ref="J5" pin="30" pintype="input"/>
-      <node ref="J5" pin="7" pintype="input"/>
+      <node ref="J5" pin="8" pintype="input"/>
       <node ref="J6" pin="7" pintype="input"/>
       <node ref="J6" pin="MP" pintype="input"/>
       <node ref="M1" pin="1" pintype="input"/>

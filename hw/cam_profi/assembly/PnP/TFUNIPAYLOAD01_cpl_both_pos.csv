@@ -6,7 +6,7 @@ Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 "C5","22u","C_0805_2012Metric",58.5470,30.7594,0.0000,bottom
 "C6","47u","C_0805_2012Metric",59.7154,36.8554,0.0000,bottom
 "C7","10u","C_0805_2012Metric",56.3118,37.9730,180.0000,bottom
-"C8","10uF","CP_EIA-3216-18_Kemet-A",35.9410,42.6212,180.0000,bottom
+"C8","10u","C_0805_2012Metric",36.4490,42.4180,180.0000,bottom
 "C9","100nF","C_0805_2012Metric",36.4490,40.3606,180.0000,bottom
 "C10","100nF","C_0805_2012Metric",37.3126,23.1140,-90.0000,bottom
 "C11","100nF","C_0805_2012Metric",45.0342,32.0040,-90.0000,bottom
@@ -18,9 +18,9 @@ Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 "D2","BZX585-B5V6.115","D_SOD-523",51.4096,13.9446,-90.0000,bottom
 "D3","BLUE","LED_1206_mill",8.4582,36.9697,0.0000,bottom
 "D4","RED","LED_1206_mill",8.4582,41.5290,0.0000,bottom
-"D5","RED","LED_1206_mill",61.9760,51.1556,-90.0000,bottom
+"D5","RED","LED_1206_mill",61.5442,48.3343,90.0000,bottom
 "D6","GREEN","LED_1206_mill",8.4582,32.4104,180.0000,bottom
-"D7","RED","LED_1206_mill",65.4304,51.1556,-90.0000,bottom
+"D7","RED","LED_1206_mill",65.1002,48.3108,90.0000,bottom
 "FID1","Fiducial","Fiducial_1mm_Mask2mm",8.5090,16.6370,0.0000,bottom
 "FID2","Fiducial","Fiducial_1mm_Mask2mm",73.7108,15.8750,90.0000,bottom
 "FID3","Fiducial","Fiducial_1mm_Mask2mm",17.1196,52.2478,180.0000,bottom
@@ -52,7 +52,7 @@ Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 "R11","91k","R_0805_2012Metric",53.6956,35.1536,-90.0000,bottom
 "R12","10k","R_0805_2012Metric",25.6032,26.0096,0.0000,bottom
 "R13","10k","R_0805_2012Metric",25.5778,28.5242,0.0000,bottom
-"R14","180R","R_0805_2012Metric",62.0522,46.8884,-90.0000,bottom
+"R14","180R","R_0805_2012Metric",61.4680,52.6015,90.0000,bottom
 "R15","18R","R_0805_2012Metric",12.7000,32.4866,0.0000,bottom
 "R17","100R","R_0805_2012Metric",27.8630,13.7964,-90.0000,bottom
 "R18","100R","R_0805_2012Metric",25.9707,13.7983,-90.0000,bottom
@@ -61,13 +61,13 @@ Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 "R21","100R","R_0805_2012Metric",30.9880,23.4696,-90.0000,bottom
 "R22","806k","R_0805_2012Metric",66.2432,36.1442,180.0000,bottom
 "R23","91k","R_0805_2012Metric",63.5254,35.4076,-90.0000,bottom
-"R24","180R","R_0805_2012Metric",65.7606,46.8884,-90.0000,bottom
-"R25","100R","R_0603_1608Metric",62.5510,13.1908,90.0000,bottom
+"R24","180R","R_0805_2012Metric",64.7700,52.5780,90.0000,bottom
+"R25","100R","R_0805_2012Metric",63.0174,13.5382,90.0000,bottom
 "R26","10k","R_0805_2012Metric",29.6418,46.7106,0.0000,bottom
-"R27","100R","R_0603_1608Metric",60.9889,13.1908,90.0000,bottom
-"R28","100R","R_0603_1608Metric",59.4268,13.1908,90.0000,bottom
-"R29","100R","R_0603_1608Metric",57.8647,13.1908,90.0000,bottom
-"R30","100R","R_0603_1608Metric",56.3026,13.1908,90.0000,bottom
+"R27","100R","R_0805_2012Metric",61.0870,13.5382,90.0000,bottom
+"R28","100R","R_0805_2012Metric",59.1566,13.5382,90.0000,bottom
+"R29","100R","R_0805_2012Metric",57.2262,13.5382,90.0000,bottom
+"R30","100R","R_0805_2012Metric",55.2958,13.5382,90.0000,bottom
 "SW1","SKRTLAE010","KMT031 NGJ LHS C&K",43.3070,42.6974,-90.0000,bottom
 "SW2","SKRTLAE010","KMT031 NGJ LHS C&K",46.5836,42.6974,-90.0000,bottom
 "U1","TPS631000DRLR","SOT-583-8",56.6928,33.7707,180.0000,bottom
