@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/github/workspace/hw/sch_pcb/TFUNIPAYLOAD01.kicad_sch</source>
-    <date>2025-12-28T14:23:32+0000</date>
+    <date>2025-12-28T23:49:51+0000</date>
     <tool>Eeschema 9.0.6+1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -2176,29 +2176,29 @@
       <node ref="R19" pin="1" pintype="passive"/>
       <node ref="U2" pin="15" pinfunction="PD6" pintype="bidirectional"/>
     </net>
-    <net code="19" name="/MISO" class="Default">
+    <net code="19" name="/LED1" class="Default">
+      <node ref="R9" pin="1" pintype="passive"/>
+      <node ref="U2" pin="24" pinfunction="PC5" pintype="bidirectional"/>
+    </net>
+    <net code="20" name="/LED2" class="Default">
+      <node ref="R7" pin="1" pintype="passive"/>
+      <node ref="U2" pin="25" pinfunction="PC6" pintype="bidirectional"/>
+    </net>
+    <net code="21" name="/LED3" class="Default">
+      <node ref="R15" pin="2" pintype="passive"/>
+      <node ref="U2" pin="26" pinfunction="PC7" pintype="bidirectional"/>
+    </net>
+    <net code="22" name="/MISO" class="Default">
       <node ref="J3" pin="1" pintype="input"/>
       <node ref="J5" pin="17" pintype="input"/>
       <node ref="R27" pin="2" pintype="passive"/>
       <node ref="U2" pin="2" pinfunction="PB6" pintype="bidirectional"/>
     </net>
-    <net code="20" name="/MOSI" class="Default">
+    <net code="23" name="/MOSI" class="Default">
       <node ref="J3" pin="4" pintype="input"/>
       <node ref="J5" pin="15" pintype="input"/>
       <node ref="R28" pin="2" pintype="passive"/>
       <node ref="U2" pin="1" pinfunction="PB5" pintype="bidirectional"/>
-    </net>
-    <net code="21" name="/PC5_D1" class="Default">
-      <node ref="R9" pin="1" pintype="passive"/>
-      <node ref="U2" pin="24" pinfunction="PC5" pintype="bidirectional"/>
-    </net>
-    <net code="22" name="/PC6_D2" class="Default">
-      <node ref="R7" pin="1" pintype="passive"/>
-      <node ref="U2" pin="25" pinfunction="PC6" pintype="bidirectional"/>
-    </net>
-    <net code="23" name="/PC7_D3" class="Default">
-      <node ref="R15" pin="2" pintype="passive"/>
-      <node ref="U2" pin="26" pinfunction="PC7" pintype="bidirectional"/>
     </net>
     <net code="24" name="/RX0" class="Default">
       <node ref="R1" pin="1" pintype="passive"/>
