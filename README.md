@@ -1,15 +1,17 @@
 # TFUNIPAYLOAD01 - universal interface for sensor payload 
 
-Reference design of PX4 interface for generic [TF-ATMON](https://www.thunderfly.cz/tf-atmon.html) compatible payload detector. The purpose of this design is to connect a sensor to the [TF-ATMON](https://github.com/ThunderFly-aerospace/TF-ATMON) system despite the fact that the sensor does not have any driver in the flight stack (autopilot firmware), but at the same time, it is suitable for atmospheric measurement.
+Reference design of PX4 interface for generic [TF-ATMON](https://docs.thunderfly.cz/instruments/TF-ATMON) compatible payload. The purpose of this design is to connect a sensor to the [TF-ATMON](https://www.thunderfly.cz/tf-atmon.html) system despite that the sensor does not have any driver in the flight stack (autopilot firmware), but at the same time, it is required for atmospheric measurement.
+
+![TFUNIPAYLOAD block-schematics](./doc/gen/img/TFUNIPAYLOAD01-top.png)
+
+The sensor is connected to the [TFUNIPAYLOAD](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD01) board using a UART, I2C, GPIO, ADC or SPI iterfaces. 
+ATmega in TFUNIPAYLOAD01 runs the Arduino firmware, which prepares [MAVLink](https://en.wikipedia.org/wiki/MAVLink) messages to be logged and transported to GCS running TF-ATMON infrastructure described in the block schematics. 
 
 ![TFUNIPAYLOAD block-schematics](./doc/img/block_schematics.svg)
 
-The sensor is connected to the [TFUNIPAYLOAD](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD01) board using a serial port. 
-ATmega in TFUNIPAYLOAD01 runs the Arduino firmware, which prepares [MAVLink](https://en.wikipedia.org/wiki/MAVLink) messages to be logged and transported to GCS running TF-ATMON software. 
+## Example of use
 
-## Example of wiring
-
-PX4 is capable of logging MAVLink data from the UART (Telemetry Port).  The “UART Peripheral” connector is intended for connecting UART-based FMU using the Pixhawk DS-009 telemetry pinout. Typical devices include flight controllers (autopilot) or companion computers.
+FMU firmware (PX4 or Ardupilot for example) is capable of logging MAVLink data from the UART (Telemetry Port).  Therefore the “UART Peripheral” connector on TFUNIPAYLOAD01 is intended for connecting UART-based FMU using the Pixhawk DS-009 telemetry pinout. Typical devices include flight controllers (autopilot) or companion computers.
 
 [Pixhawk standard connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) is as follows:
 
