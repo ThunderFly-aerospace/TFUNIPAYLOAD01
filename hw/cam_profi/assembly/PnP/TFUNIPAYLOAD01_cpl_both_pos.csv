@@ -24,6 +24,7 @@ Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 "FID1","Fiducial","Fiducial_1mm_Mask2mm",8.5090,16.6370,0.0000,bottom
 "FID2","Fiducial","Fiducial_1mm_Mask2mm",73.7108,15.8750,90.0000,bottom
 "FID3","Fiducial","Fiducial_1mm_Mask2mm",17.1196,52.2478,180.0000,bottom
+"G1","LOGO","TF",25.8572,23.0378,0.0000,top
 "J1","SM06B-GHS-TB","JST_GH_SM06B-GHS-TB_1x06-1MP_P1.25mm_Horizontal",46.2942,8.5132,180.0000,bottom
 "J2","SM08B-GHS-TB","JST_GH_SM08B-GHS-TB_1x08-1MP_P1.25mm_Horizontal",22.6306,8.5132,180.0000,bottom
 "J3","HEADER_2x03","SMD_2x03_WO_paste",48.7172,25.5524,180.0000,top
@@ -41,7 +42,7 @@ Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 "Q2","BC817-25","SOT-23",16.4338,41.4528,180.0000,bottom
 "R1","100R","R_0805_2012Metric",48.1838,13.9192,-90.0000,bottom
 "R2","10k","R_0805_2012Metric",12.4460,27.5590,180.0000,bottom
-"R3","10k","R_0805_2012Metric",12.3698,23.4696,180.0000,bottom
+"R3","10k","R_0805_2012Metric",12.4206,22.9616,180.0000,bottom
 "R4","100R","R_0805_2012Metric",46.1518,13.9192,-90.0000,bottom
 "R5","10k","R_0805_2012Metric",39.5986,23.0886,-90.0000,bottom
 "R6","51R","R_0805_2012Metric",12.6746,37.1348,180.0000,bottom
@@ -69,7 +70,7 @@ Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 "R29","100R","R_0805_2012Metric",57.2262,13.5382,90.0000,bottom
 "R30","100R","R_0805_2012Metric",55.2958,13.5382,90.0000,bottom
 "SW1","SKRTLAE010","KMT031 NGJ LHS C&K",8.3820,28.3210,0.0000,bottom
-"SW2","SKRTLAE010","KMT031 NGJ LHS C&K",8.3820,24.0030,0.0000,bottom
+"SW2","SKRTLAE010","KMT031 NGJ LHS C&K",8.3820,23.6728,0.0000,bottom
 "U1","TPS631000DRLR","SOT-583-8",56.6928,33.7707,180.0000,bottom
 "U2","ATMEGA1284P-AU","TQFP-44_10x10mm_P0.8mm",36.6014,32.0040,90.0000,bottom
 "U3","TPS631000DRLR","SOT-583-8",66.5988,33.8723,180.0000,bottom

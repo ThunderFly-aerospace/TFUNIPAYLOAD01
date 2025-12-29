@@ -1,4 +1,5 @@
 Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+"G1","LOGO","TF",25.8572,23.0378,0.0000,top
 "J3","HEADER_2x03","SMD_2x03_WO_paste",48.7172,25.5524,180.0000,top
 "J5","HEADER_2x15","Straight_2x15",40.6400,52.0700,90.0000,top
 "M1","HOLE","MountingHole_3mm",10.1600,50.8000,0.0000,top

@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/github/workspace/hw/sch_pcb/TFUNIPAYLOAD01.kicad_sch</source>
-    <date>2025-12-28T23:49:51+0000</date>
+    <date>2025-12-29T17:08:06+0000</date>
     <tool>Eeschema 9.0.6+1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -504,6 +504,23 @@
       <property name="ki_fp_filters" value="Fiducial*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>3247d27a-f411-474f-8c4c-872f17cc887f</tstamps>
+    </comp>
+    <comp ref="G1">
+      <value>LOGO</value>
+      <footprint>TF_LOGA:TF</footprint>
+      <fields>
+        <field name="UST_ID"/>
+        <field name="Footprint">TF_LOGA:TF</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="TF_LOGO" part="LOGO" description=""/>
+      <property name="UST_ID" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="TFUNIPAYLOAD01.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a380430f-78e6-41b8-9e49-8de804337260</tstamps>
     </comp>
     <comp ref="J1">
       <value>SM06B-GHS-TB</value>
@@ -2014,6 +2031,15 @@
         <pin num="1" name="1" type="passive"/>
         <pin num="2" name="2" type="passive"/>
       </pins>
+    </libpart>
+    <libpart lib="TF_LOGO" part="LOGO">
+      <fields>
+        <field name="Reference">G</field>
+        <field name="Value">LOGO</field>
+        <field name="Footprint">MLAB_LOGA:TF 10x4,7</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
     </libpart>
     <libpart lib="Transistor_BJT" part="BC817">
       <description>0.8A Ic, 45V Vce, NPN Transistor, SOT-23</description>
