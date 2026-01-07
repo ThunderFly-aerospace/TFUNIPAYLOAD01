@@ -24,7 +24,7 @@ Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 "FID1","Fiducial","Fiducial_1mm_Mask2mm",8.5090,16.6370,0.0000,bottom
 "FID2","Fiducial","Fiducial_1mm_Mask2mm",73.7108,15.8750,90.0000,bottom
 "FID3","Fiducial","Fiducial_1mm_Mask2mm",17.1196,52.2478,180.0000,bottom
-"G1","LOGO","TF",25.8572,23.0378,0.0000,top
+"G1","LOGO","TF",25.6540,28.6569,30.0000,top
 "J1","SM06B-GHS-TB","JST_GH_SM06B-GHS-TB_1x06-1MP_P1.25mm_Horizontal",46.2942,8.5132,180.0000,bottom
 "J2","SM08B-GHS-TB","JST_GH_SM08B-GHS-TB_1x08-1MP_P1.25mm_Horizontal",22.6306,8.5132,180.0000,bottom
 "J3","HEADER_2x03","SMD_2x03_WO_paste",48.7172,25.5524,180.0000,top
