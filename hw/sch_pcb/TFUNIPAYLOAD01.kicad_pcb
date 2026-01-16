@@ -19731,7 +19731,7 @@
 		)
 	)
 	(gr_text "TFUNIPAYLOAD01B"
-		(at 145.1472 92.8334 0)
+		(at 153.8594 97.4562 0)
 		(layer "F.SilkS")
 		(uuid "00000000-0000-0000-0000-00005b42461a")
 		(effects
@@ -19739,6 +19739,19 @@
 				(size 1.7 1.7)
 				(thickness 0.3)
 			)
+		)
+	)
+	(gr_text "DETECT"
+		(at 138.848 90.8014 90)
+		(layer "F.SilkS")
+		(uuid "0af4d065-cfe1-4d5d-aa00-69cddc47ea0c")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
 		)
 	)
 	(gr_text "PWR 5V"
@@ -19750,6 +19763,44 @@
 				(size 1.3 1.3)
 				(thickness 0.2)
 			)
+		)
+	)
+	(gr_text "TX"
+		(at 146.2902 87.8804 90)
+		(layer "F.SilkS")
+		(uuid "132dcf9b-0947-44ea-ac70-80f554556efd")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "MOSI"
+		(at 148.881 89.379 90)
+		(layer "F.SilkS")
+		(uuid "26cab423-3c09-42d4-b9f1-3d64c30027f1")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "GND 5V 3v3 GND A0  A1  B1  B0 C1  C0 GND SCL P  SDA GND"
+		(at 128.598 80.7394 0)
+		(layer "F.SilkS")
+		(uuid "2c60119c-d572-4942-93cf-967631fad26b")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.1)
+			)
+			(justify left bottom)
 		)
 	)
 	(gr_text "UART\nPeripheral"
@@ -19775,6 +19826,58 @@
 			(justify left)
 		)
 	)
+	(gr_text "I2C PWR"
+		(at 161.708 91.3348 90)
+		(layer "F.SilkS")
+		(uuid "441031dc-5ee9-49f6-8366-9e3976f56cb4")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "RX"
+		(at 143.9026 87.9566 90)
+		(layer "F.SilkS")
+		(uuid "463b984c-ad79-4843-a59c-276a85ae2201")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "MISO"
+		(at 151.5988 89.4298 90)
+		(layer "F.SilkS")
+		(uuid "51dbaf42-0c10-41c8-aa70-5a9c2e1b16af")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "SCL"
+		(at 159.1172 88.617 90)
+		(layer "F.SilkS")
+		(uuid "533d9033-e3e3-4262-810d-f621b4e4cf76")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "PWR 3V3"
 		(at 169.5058 93.3668 90)
 		(layer "F.SilkS")
@@ -19784,6 +19887,19 @@
 				(size 1.3 1.3)
 				(thickness 0.2)
 			)
+		)
+	)
+	(gr_text "GND"
+		(at 131.228 88.871 90)
+		(layer "F.SilkS")
+		(uuid "6fd53797-5f0f-4dbe-a316-45d93e6461aa")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
 		)
 	)
 	(gr_text "~{RST}\nPB7\nPB6"
@@ -19820,6 +19936,19 @@
 			)
 		)
 	)
+	(gr_text "SDA"
+		(at 164.1464 88.871 90)
+		(layer "F.SilkS")
+		(uuid "9da330ae-8371-41dd-8ffe-6a2bf96148eb")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "LED1"
 		(at 119.8996 93.951 0)
 		(layer "F.SilkS")
@@ -19829,6 +19958,32 @@
 				(size 1.3 1.3)
 				(thickness 0.2)
 			)
+		)
+	)
+	(gr_text "GND"
+		(at 166.7626 88.8456 90)
+		(layer "F.SilkS")
+		(uuid "a81caf6a-e9d3-4981-849d-115ae34a00af")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "GND"
+		(at 156.6026 89.0488 90)
+		(layer "F.SilkS")
+		(uuid "a8379530-20bc-43c4-92c9-234db8072167")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
 		)
 	)
 	(gr_text "SPI\nmaster"
@@ -19841,6 +19996,19 @@
 				(thickness 0.2)
 			)
 			(justify bottom)
+		)
+	)
+	(gr_text "+3V3"
+		(at 136.308 89.76 90)
+		(layer "F.SilkS")
+		(uuid "b123e13a-cae8-4916-baeb-d202018ae297")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
 		)
 	)
 	(gr_text "LED3"
@@ -19875,6 +20043,32 @@
 				(thickness 0.2)
 			)
 			(justify bottom)
+		)
+	)
+	(gr_text "+5V"
+		(at 133.768 89.0488 90)
+		(layer "F.SilkS")
+		(uuid "d1bbd8a9-b073-4373-94c7-361a9658ea17")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "SCLK"
+		(at 153.9356 89.633 90)
+		(layer "F.SilkS")
+		(uuid "fdcc39a7-b6b3-49ae-80b2-da5e5513961f")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left bottom)
 		)
 	)
 	(gr_text "K"
