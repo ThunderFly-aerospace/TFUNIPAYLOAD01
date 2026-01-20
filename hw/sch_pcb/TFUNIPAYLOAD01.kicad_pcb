@@ -4653,6 +4653,7 @@
 		(property "Reference" "FID1"
 			(at 0 1.95 180)
 			(layer "B.SilkS")
+			(hide yes)
 			(uuid "adea8068-eb0d-420b-92c0-fbc25ae45499")
 			(effects
 				(font
@@ -12758,7 +12759,7 @@
 		(at 141.9748 115.7142 180)
 		(descr "SMD3225/4, Crystal, 3.2x2.5mm package, SMD, generated with kicad-footprint-generator make_crystal.py, http://www.txccrystal.com/images/pdf/7m-accuracy.pdf")
 		(property "Reference" "Y1"
-			(at 0 2.45 0)
+			(at 0.9424 2.45 0)
 			(layer "B.SilkS")
 			(uuid "76652812-ccd7-436c-8f38-6ca3f68cebca")
 			(effects
