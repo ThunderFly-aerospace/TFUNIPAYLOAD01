@@ -10614,7 +10614,7 @@
 	)
 	(wire
 		(pts
-			(xy 340.36 205.74) (xy 340.36 200.66)
+			(xy 340.36 209.55) (xy 340.36 200.66)
 		)
 		(stroke
 			(width 0)
@@ -11453,12 +11453,12 @@
 		(uuid "84267f80-a8e7-46a4-87f7-6966c4f05c4f")
 	)
 	(label "~{RST}_EXT"
-		(at 340.36 205.74 270)
+		(at 340.36 209.55 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "86097448-4e3d-4adb-bdad-9beb4a621d0b")
 	)
