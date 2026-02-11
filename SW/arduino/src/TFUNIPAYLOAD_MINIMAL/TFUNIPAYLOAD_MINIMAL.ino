@@ -1,6 +1,12 @@
 #include "ArduinoMavlink.h"
 #include <HardwareSerial.h>
 
+#include "githash.h"
+
+#define MAJOR 0
+#define MINOR 1
+
+
 HardwareSerial &hs = Serial1;
 ArduinoMavlink mav(hs);
 

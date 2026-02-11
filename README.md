@@ -6,7 +6,7 @@ Reference design of PX4 interface for generic [TF-ATMON](https://docs.thunderfly
 
 ![TFUNIPAYLOAD01 bottom view](./doc/gen/img/TFUNIPAYLOAD01-bottom.png)
 
-The sensor is connected to the [TFUNIPAYLOAD](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD01) board using a UART, I2C, GPIO, ADC, or SPI interface. 
+The sensor is connected to the TFUNIPAYLOAD board using a UART, I2C, GPIO, ADC, or SPI interface. 
 ATmega in TFUNIPAYLOAD01 runs the Arduino firmware, which prepares [MAVLink](https://en.wikipedia.org/wiki/MAVLink) messages to be logged and transported to GCS running TF-ATMON infrastructure described in the block schematics. 
 
 ![TFUNIPAYLOAD block-schematics](./doc/img/block_schematics.svg)
@@ -47,10 +47,7 @@ Source code: [TFUNIPAYLOAD_MINIMAL.ino](/SW/arduino/src/TFUNIPAYLOAD_MINIMAL/TFU
 
 #### Tunnel packet sending function
 
-[Tunnel packet sending function](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/79eee22fe32725179d1df2b6ca72e901e2be1834/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino#L50)
-
-```  mav.SendTunnelData(data, sizeof(data), 0, 1, 0); ```
-This function enables sending tunnel data to the autopilot. It takes the following as its arguments:
+[Tunnel packet sending function](https://github.com/ThunderFly-aerospace/TFUNIPAYLOAD/blob/79eee22fe32725179d1df2b6ca72e901e2be1834/SW/arduino/src/TFUNIPAYLOAD/TFUNIPAYLOAD.ino#L50) ```  mav.SendTunnelData(data, sizeof(data), 0, 1, 0); ``` is the main function that enables sending tunnel data to the autopilot. It takes the following as its arguments:
  * data in uint8_t [127] format
  * data length
  * data type (every type of logged data will have its ID - it serves for easy differentiation of different sensors
