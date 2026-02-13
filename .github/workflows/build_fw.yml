@@ -5,10 +5,14 @@ on:
     paths:
     - 'SW/arduino/src/**'
     - '.github/workflows/*.yml'
+    - '!SW/arduino/src/**/githash.h'
+    - '!SW/arduino/src/**/nextversion'
   pull_request:
     paths:
     - 'SW/arduino/src/**'
     - '.github/workflows/*.yml'
+    - '!SW/arduino/src/**/githash.h'
+    - '!SW/arduino/src/**/nextversion'
   workflow_dispatch:
   workflow_call:
     inputs:
