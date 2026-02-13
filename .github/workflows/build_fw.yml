@@ -93,8 +93,8 @@ jobs:
 
             find "${BUILD_DIR}" -type f -name "*.hex" -exec bash -c 'mv "$1" "$(dirname "$1")/fw_${{ matrix.type }}_${{ matrix.name }}.'"${NEXTBUILD}-${BT}"'$(basename "$1" | sed -e "s/${{ matrix.type }}\.ino//g")"' _ {} \;
 
-            rm -r "${GITHUB_WORKSPACE}/SW/arduino/src/build" || true
-            mv "${BUILD_DIR}" "${GITHUB_WORKSPACE}/SW/arduino/src/build"
+            rm -r "${GITHUB_WORKSPACE}/SW/arduino/build" || true
+            mv "${BUILD_DIR}" "${GITHUB_WORKSPACE}/SW/arduino/build"
 
             NEXTBUILD=`echo $NEXTBUILD"+1"|bc`
 
@@ -122,7 +122,7 @@ jobs:
           with:
             name: fw_${{ matrix.type }}_${{ matrix.name }}
             path: |
-              SW/arduino/src/build/*.hex
+              SW/arduino/build/*.hex
               SW/arduino/src/${{ matrix.type }}/nextversion
               SW/arduino/src/${{ matrix.type }}/githash.h
               root
@@ -139,24 +139,24 @@ jobs:
           token: ${{ secrets.pat }}
 
       - run: |
-          rm SW/arduino/src/build -r || true
-          mkdir SW/arduino/src/build
-          mkdir SW/arduino/src/artifacts
+          rm SW/arduino/build -r || true
+          mkdir SW/arduino/build
+          mkdir SW/arduino/artifacts
 
       - name: Download a Build Artifact
         uses: actions/download-artifact@v4
         with:
-          path: 'SW/arduino/src/artifacts/'
+          path: 'SW/arduino/artifacts/'
 
 
       - name: Update git hash
         run: |
-          for d in `ls SW/arduino/src/artifacts`;
+          for d in `ls SW/arduino/artifacts`;
           do
-            cp -R SW/arduino/src/artifacts/$d/* ./ ||true
+            cp -R SW/arduino/artifacts/$d/* ./ ||true
           done
 
-          rm -rf SW/arduino/src/artifacts
+          rm -rf SW/arduino/artifacts
           rm -rf root
                           
           git status
@@ -169,7 +169,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: ${{ steps.last-commit-message.outputs.msg }}, extended build
-          file_pattern: 'SW/arduino/src/build/* SW/arduino/src/TFUNIPAYLOAD/githash.h SW/arduino/src/TFUNIPAYLOAD/nextversion SW/arduino/src/TFUNIPAYLOAD_MINIMAL/githash.h SW/arduino/src/TFUNIPAYLOAD_MINIMAL/nextversion'
+          file_pattern: 'SW/arduino/build/* SW/arduino/src/TFUNIPAYLOAD/githash.h SW/arduino/src/TFUNIPAYLOAD/nextversion SW/arduino/src/TFUNIPAYLOAD_MINIMAL/githash.h SW/arduino/src/TFUNIPAYLOAD_MINIMAL/nextversion'
           #commit_options: '--amend --no-edit'
           #push_options: '--force'
           skip_fetch: true
