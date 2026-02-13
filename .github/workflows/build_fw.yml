@@ -81,9 +81,12 @@ jobs:
 
             mv githash.h SW/arduino/src/${{ matrix.type }}/
 
-            if [ ! -d "SW/arduino/src/${{ matrix.type }}/lib/c_library_v2" ]; then
+            MAVLINK_DIR="SW/arduino/src/${{ matrix.type }}/lib/c_library_v2"
+            MAVLINK_HEADER="${MAVLINK_DIR}/common/mavlink.h"
+            if [ ! -f "${MAVLINK_HEADER}" ]; then
+              rm -rf "${MAVLINK_DIR}"
               mkdir -p "SW/arduino/src/${{ matrix.type }}/lib"
-              git clone --depth 1 https://github.com/mavlink/c_library_v2.git "SW/arduino/src/${{ matrix.type }}/lib/c_library_v2"
+              git clone --depth 1 https://github.com/mavlink/c_library_v2.git "${MAVLINK_DIR}"
             fi
 
             EXTRA_FLAGS="-DCHANNELS=${{ matrix.channels }} -I${GITHUB_WORKSPACE}/SW/arduino/src/${{ matrix.type }}"
