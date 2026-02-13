@@ -4,7 +4,11 @@ on:
   push:
     paths:
     - 'SW/arduino/src/**'
-    - '*/*.yml'    
+    - '.github/workflows/*.yml'
+  pull_request:
+    paths:
+    - 'SW/arduino/src/**'
+    - '.github/workflows/*.yml'
   workflow_dispatch:
   workflow_call:
     inputs:
@@ -35,6 +39,8 @@ jobs:
         
         - name: Update githash.h and compile  
           run: |
+            set -euo pipefail
+
             BUILD_TYPE="${{ inputs.build_type }}"
             BT="CIBuild"
             if [ "$BUILD_TYPE" = "B" ]; then
@@ -44,10 +50,18 @@ jobs:
               BT="Release"
             fi 
 
-            PREVMAJOR=`cat SW/arduino/src/${{ matrix.type }}/nextversion|grep MAJOR|cut -d ' ' -f 2`
-            PREVMINOR=`cat SW/arduino/src/${{ matrix.type }}/nextversion|grep MINOR|cut -d ' ' -f 2`
-            NEXTRELEASE=`cat SW/arduino/src/${{ matrix.type }}/nextversion|grep RELEASE|cut -d ' ' -f 2`
-            NEXTBUILD=`cat SW/arduino/src/${{ matrix.type }}/nextversion|grep BUILD|cut -d ' ' -f 2`
+            NEXTVERSION_PATH="SW/arduino/src/${{ matrix.type }}/nextversion"
+            if [ -f "$NEXTVERSION_PATH" ]; then
+              PREVMAJOR=$(grep '^MAJOR ' "$NEXTVERSION_PATH" | awk '{print $2}')
+              PREVMINOR=$(grep '^MINOR ' "$NEXTVERSION_PATH" | awk '{print $2}')
+              NEXTRELEASE=$(grep '^RELEASE ' "$NEXTVERSION_PATH" | awk '{print $2}')
+              NEXTBUILD=$(grep '^BUILD ' "$NEXTVERSION_PATH" | awk '{print $2}')
+            else
+              PREVMAJOR=$(grep '#define MAJOR' "SW/arduino/src/${{ matrix.type }}/${{ matrix.type }}.ino" | head -n 1 | awk '{print $3}')
+              PREVMINOR=$(grep '#define MINOR' "SW/arduino/src/${{ matrix.type }}/${{ matrix.type }}.ino" | head -n 1 | awk '{print $3}')
+              NEXTRELEASE=0
+              NEXTBUILD=0
+            fi
 
             CURMAJOR=`cat SW/arduino/src/${{ matrix.type }}/${{ matrix.type }}.ino|grep MAJOR|head -n 1|cut -d ' ' -f 3`
             CURMINOR=`cat SW/arduino/src/${{ matrix.type }}/${{ matrix.type }}.ino|grep MINOR|head -n 1|cut -d ' ' -f 3`
@@ -66,6 +80,11 @@ jobs:
             echo "#define GHBUILDTYPE ${BT}" >> githash.h
 
             mv githash.h SW/arduino/src/${{ matrix.type }}/
+
+            if [ ! -d "SW/arduino/src/${{ matrix.type }}/lib/c_library_v2" ]; then
+              mkdir -p "SW/arduino/src/${{ matrix.type }}/lib"
+              git clone --depth 1 https://github.com/mavlink/c_library_v2.git "SW/arduino/src/${{ matrix.type }}/lib/c_library_v2"
+            fi
 
             sudo snap install arduino-cli
             arduino-cli core update-index --additional-urls https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json,https://mcudude.github.io/MightyCore/package_MCUdude_MightyCore_index.json > /dev/null
@@ -114,7 +133,7 @@ jobs:
             retention-days: 1
 
   commit:
-    if: github.event_name != 'release' #&& github.event.action == 'created'
+    if: github.event_name != 'release' && github.event_name != 'pull_request' #&& github.event.action == 'created'
     runs-on: ubuntu-latest
     needs: [build]
     steps:
@@ -159,4 +178,3 @@ jobs:
           #commit_options: '--amend --no-edit'
           #push_options: '--force'
           skip_fetch: true
-
