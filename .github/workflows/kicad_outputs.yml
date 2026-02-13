@@ -10,7 +10,15 @@ on:
       - '**.kicad_pcb'
       - '**.kicad_sch'
       - '**.kicad_pro'
-      - 'doc/assets'
+      - 'doc/assets/**'
+      - '.github/workflows/*.yml'
+  pull_request:
+    paths:
+      - '**.kicad_pcb'
+      - '**.kicad_sch'
+      - '**.kicad_pro'
+      - 'doc/assets/**'
+      - '.github/workflows/*.yml'
   workflow_dispatch:
   
 env:
