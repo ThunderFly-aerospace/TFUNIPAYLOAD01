@@ -33,14 +33,9 @@ jobs:
     steps:
         - name: Checkout
           uses: actions/checkout@v4
+          with:
+            submodules: true
 
-        - name: Initialize firmware submodules only
-          run: |
-            git submodule sync -- SW/arduino/src/TFUNIPAYLOAD/lib/c_library_v2 SW/arduino/src/TFUNIPAYLOAD_MINIMAL/lib/c_library_v2
-            git submodule set-url SW/arduino/src/TFUNIPAYLOAD/lib/c_library_v2 https://github.com/mavlink/c_library_v2.git
-            git submodule set-url SW/arduino/src/TFUNIPAYLOAD_MINIMAL/lib/c_library_v2 https://github.com/mavlink/c_library_v2.git
-            git submodule update --init --depth 1 -- SW/arduino/src/TFUNIPAYLOAD/lib/c_library_v2 SW/arduino/src/TFUNIPAYLOAD_MINIMAL/lib/c_library_v2
-        
         - name: Update githash.h and compile  
           run: |
             set -euo pipefail
