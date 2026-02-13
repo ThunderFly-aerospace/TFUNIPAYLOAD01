@@ -4,7 +4,11 @@ on:
   push:
     paths:
     - 'SW/arduino/src/**'
-    - '*/*.yml'    
+    - '.github/workflows/*.yml'
+  pull_request:
+    paths:
+    - 'SW/arduino/src/**'
+    - '.github/workflows/*.yml'
   workflow_dispatch:
   workflow_call:
     inputs:
@@ -29,12 +33,14 @@ jobs:
     steps:
         - name: Checkout
           uses: actions/checkout@v4
-          continue-on-error: true
           with:
-            submodules: True
-        
+            submodules: true
+            token: ${{ secrets.pat }}
+
         - name: Update githash.h and compile  
           run: |
+            set -euo pipefail
+
             BUILD_TYPE="${{ inputs.build_type }}"
             BT="CIBuild"
             if [ "$BUILD_TYPE" = "B" ]; then
@@ -44,10 +50,18 @@ jobs:
               BT="Release"
             fi 
 
-            PREVMAJOR=`cat SW/arduino/src/${{ matrix.type }}/nextversion|grep MAJOR|cut -d ' ' -f 2`
-            PREVMINOR=`cat SW/arduino/src/${{ matrix.type }}/nextversion|grep MINOR|cut -d ' ' -f 2`
-            NEXTRELEASE=`cat SW/arduino/src/${{ matrix.type }}/nextversion|grep RELEASE|cut -d ' ' -f 2`
-            NEXTBUILD=`cat SW/arduino/src/${{ matrix.type }}/nextversion|grep BUILD|cut -d ' ' -f 2`
+            NEXTVERSION_PATH="SW/arduino/src/${{ matrix.type }}/nextversion"
+            if [ -f "$NEXTVERSION_PATH" ]; then
+              PREVMAJOR=$(grep '^MAJOR ' "$NEXTVERSION_PATH" | awk '{print $2}')
+              PREVMINOR=$(grep '^MINOR ' "$NEXTVERSION_PATH" | awk '{print $2}')
+              NEXTRELEASE=$(grep '^RELEASE ' "$NEXTVERSION_PATH" | awk '{print $2}')
+              NEXTBUILD=$(grep '^BUILD ' "$NEXTVERSION_PATH" | awk '{print $2}')
+            else
+              PREVMAJOR=$(grep '#define MAJOR' "SW/arduino/src/${{ matrix.type }}/${{ matrix.type }}.ino" | head -n 1 | awk '{print $3}')
+              PREVMINOR=$(grep '#define MINOR' "SW/arduino/src/${{ matrix.type }}/${{ matrix.type }}.ino" | head -n 1 | awk '{print $3}')
+              NEXTRELEASE=0
+              NEXTBUILD=0
+            fi
 
             CURMAJOR=`cat SW/arduino/src/${{ matrix.type }}/${{ matrix.type }}.ino|grep MAJOR|head -n 1|cut -d ' ' -f 3`
             CURMINOR=`cat SW/arduino/src/${{ matrix.type }}/${{ matrix.type }}.ino|grep MINOR|head -n 1|cut -d ' ' -f 3`
@@ -67,19 +81,20 @@ jobs:
 
             mv githash.h SW/arduino/src/${{ matrix.type }}/
 
+            EXTRA_FLAGS="-DCHANNELS=${{ matrix.channels }} -I${GITHUB_WORKSPACE}/SW/arduino/src/${{ matrix.type }}"
+
             sudo snap install arduino-cli
             arduino-cli core update-index --additional-urls https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json,https://mcudude.github.io/MightyCore/package_MCUdude_MightyCore_index.json > /dev/null
             arduino-cli core install MightyCore:avr --additional-urls https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json,https://mcudude.github.io/MightyCore/package_MCUdude_MightyCore_index.json > /dev/null
             
             PLATFORM=MightyCore:avr
-            arduino-cli compile --verbose --warnings all --fqbn MightyCore:avr:1284:BOD=disabled,LTO=Os,${{ matrix.fqbn }},variant=modelP --build-property compiler.cpp.extra_flags="-DCHANNELS=${{ matrix.channels }}" --build-path SW/arduino/src/${{ matrix.type }}/build/  SW/arduino/src/${{ matrix.type }}
+            BUILD_DIR="${GITHUB_WORKSPACE}/SW/arduino/src/${{ matrix.type }}/build"
+            arduino-cli compile --verbose --warnings all --fqbn MightyCore:avr:1284:BOD=disabled,LTO=Os,${{ matrix.fqbn }},variant=modelP --build-property compiler.cpp.extra_flags="${EXTRA_FLAGS}" --build-property compiler.c.extra_flags="${EXTRA_FLAGS}" --build-path "${BUILD_DIR}" SW/arduino/src/${{ matrix.type }}
 
-            cd SW/arduino/src/${{ matrix.type }}/build/
-            find -type f -name "*.hex" -exec bash -c 'mv $0 fw_${{ matrix.type }}_${{ matrix.name }}.'"${NEXTBUILD}-${BT}"'$(echo $0|sed -e "s/\.\///1"|sed -e "s/${{ matrix.type }}\.ino//g")' {} \;
-            cd ../../..
+            find "${BUILD_DIR}" -type f -name "*.hex" -exec bash -c 'mv "$1" "$(dirname "$1")/fw_${{ matrix.type }}_${{ matrix.name }}.'"${NEXTBUILD}-${BT}"'$(basename "$1" | sed -e "s/${{ matrix.type }}\.ino//g")"' _ {} \;
 
-            rm SW/arduino/src/build -r || true
-            mv SW/arduino/src/${{ matrix.type }}/build SW/arduino/src/build
+            rm -r "${GITHUB_WORKSPACE}/SW/arduino/src/build" || true
+            mv "${BUILD_DIR}" "${GITHUB_WORKSPACE}/SW/arduino/src/build"
 
             NEXTBUILD=`echo $NEXTBUILD"+1"|bc`
 
@@ -114,15 +129,14 @@ jobs:
             retention-days: 1
 
   commit:
-    if: github.event_name != 'release' #&& github.event.action == 'created'
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
     runs-on: ubuntu-latest
     needs: [build]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        continue-on-error: true
         with:
-          submodules: True
+          token: ${{ secrets.pat }}
 
       - run: |
           rm SW/arduino/src/build -r || true
@@ -159,4 +173,3 @@ jobs:
           #commit_options: '--amend --no-edit'
           #push_options: '--force'
           skip_fetch: true
-
