@@ -10,3 +10,9 @@
 [submodule "doc/assets"]
 	path = doc/assets
 	url = git@github.com:ThunderFly-aerospace/TFassets.git
+[submodule "fw/TFUNIPAYLOAD/src/lib/c_library_v2"]
+	path = fw/TFUNIPAYLOAD/src/lib/c_library_v2
+	url = git@github.com:mavlink/c_library_v2.git
+[submodule "fw/TFUNIPAYLOAD_MINIMAL/src/lib/c_library_v2"]
+	path = fw/TFUNIPAYLOAD_MINIMAL/src/lib/c_library_v2
+	url = git@github.com:mavlink/c_library_v2.git
