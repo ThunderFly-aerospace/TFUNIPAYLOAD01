@@ -4,9 +4,6 @@
 [submodule "SW/arduino/src/TFUNIPAYLOAD_MINIMAL/lib/c_library_v2"]
 	path = SW/arduino/src/TFUNIPAYLOAD_MINIMAL/lib/c_library_v2
 	url = git@github.com:mavlink/c_library_v2.git
-[submodule "hw/ATmegaTQ4401"]
-	path = hw/ATmegaTQ4401
-	url = git@github.com:mlab-modules/ATmegaTQ4401.git
 [submodule "doc/assets"]
 	path = doc/assets
 	url = git@github.com:ThunderFly-aerospace/TFassets.git
