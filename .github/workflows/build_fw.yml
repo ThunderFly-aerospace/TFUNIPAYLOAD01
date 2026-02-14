@@ -95,14 +95,15 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install platformio
 
-          BUILD_DIR="${GITHUB_WORKSPACE}/fw/${{ matrix.type }}/build"
-          pio run -d "fw/${{ matrix.type }}" -e "${{ matrix.env }}" --project-option="build_dir=${BUILD_DIR}"
+          PROJECT_DIR="fw/${{ matrix.type }}"
+          BUILD_DIR="${GITHUB_WORKSPACE}/fw/build"
+          PIO_BUILD_DIR="${PROJECT_DIR}/.pio/build/${{ matrix.env }}"
 
-          HEX_PATH="${BUILD_DIR}/${{ matrix.env }}/firmware.hex"
-          mv "${HEX_PATH}" "${BUILD_DIR}/fw_${{ matrix.type }}_${{ matrix.name }}.${NEXTBUILD}-${BT}.hex"
+          python3 -m platformio run -d "${PROJECT_DIR}" -e "${{ matrix.env }}"
 
-          rm -rf "${GITHUB_WORKSPACE}/fw/build" || true
-          mv "${BUILD_DIR}" "${GITHUB_WORKSPACE}/fw/build"
+          mkdir -p "${BUILD_DIR}"
+          HEX_PATH="${PIO_BUILD_DIR}/firmware.hex"
+          cp "${HEX_PATH}" "${BUILD_DIR}/fw_${{ matrix.type }}_${{ matrix.name }}.${NEXTBUILD}-${BT}.hex"
 
           if [ "${{ matrix.versioned }}" = "true" ]; then
             NEXTBUILD=$(echo "$NEXTBUILD+1" | bc)
