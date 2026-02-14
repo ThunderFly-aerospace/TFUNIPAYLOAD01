@@ -3,16 +3,16 @@ name: Build firmware
 on:
   push:
     paths:
-    - 'SW/arduino/src/**'
-    - '.github/workflows/*.yml'
-    - '!SW/arduino/src/**/githash.h'
-    - '!SW/arduino/src/**/nextversion'
+      - 'fw/**'
+      - '.github/workflows/*.yml'
+      - '!fw/**/src/githash.h'
+      - '!fw/**/nextversion'
   pull_request:
     paths:
-    - 'SW/arduino/src/**'
-    - '.github/workflows/*.yml'
-    - '!SW/arduino/src/**/githash.h'
-    - '!SW/arduino/src/**/nextversion'
+      - 'fw/**'
+      - '.github/workflows/*.yml'
+      - '!fw/**/src/githash.h'
+      - '!fw/**/nextversion'
   workflow_dispatch:
   workflow_call:
     inputs:
@@ -27,48 +27,54 @@ jobs:
         include:
           - name: TFUNIPAYLOAD01
             type: TFUNIPAYLOAD
-            fqbn: clock=8MHz_external
-            channels: 0
+            env: TFUNIPAYLOAD01B_uart
+            versioned: "true"
           - name: TFUNIPAYLOAD01
             type: TFUNIPAYLOAD_MINIMAL
-            fqbn: clock=8MHz_external
-            channels: 0
+            env: TFUNIPAYLOAD01B_uart
+            versioned: "true"
+          - name: TFUNIPAYLOAD01
+            type: TFUNIPAYLOAD-hello-world
+            env: TFUNIPAYLOAD01B_uart
+            versioned: "false"
 
     steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-          with:
-            submodules: true
-            token: ${{ secrets.pat }}
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.pat }}
 
-        - name: Update githash.h and compile  
-          run: |
-            set -euo pipefail
+      - name: Update githash.h and compile
+        run: |
+          set -euo pipefail
 
-            BUILD_TYPE="${{ inputs.build_type }}"
-            BT="CIBuild"
-            if [ "$BUILD_TYPE" = "B" ]; then
-              BT="Beta"
-            fi
-            if [ "$BUILD_TYPE" = "R" ]; then
-              BT="Release"
-            fi 
+          BUILD_TYPE="${{ inputs.build_type }}"
+          BT="CIBuild"
+          if [ "$BUILD_TYPE" = "B" ]; then
+            BT="Beta"
+          fi
+          if [ "$BUILD_TYPE" = "R" ]; then
+            BT="Release"
+          fi
 
-            NEXTVERSION_PATH="SW/arduino/src/${{ matrix.type }}/nextversion"
+          NEXTBUILD=0
+          if [ "${{ matrix.versioned }}" = "true" ]; then
+            NEXTVERSION_PATH="fw/${{ matrix.type }}/nextversion"
             if [ -f "$NEXTVERSION_PATH" ]; then
               PREVMAJOR=$(grep '^MAJOR ' "$NEXTVERSION_PATH" | awk '{print $2}')
               PREVMINOR=$(grep '^MINOR ' "$NEXTVERSION_PATH" | awk '{print $2}')
               NEXTRELEASE=$(grep '^RELEASE ' "$NEXTVERSION_PATH" | awk '{print $2}')
               NEXTBUILD=$(grep '^BUILD ' "$NEXTVERSION_PATH" | awk '{print $2}')
             else
-              PREVMAJOR=$(grep '#define MAJOR' "SW/arduino/src/${{ matrix.type }}/${{ matrix.type }}.ino" | head -n 1 | awk '{print $3}')
-              PREVMINOR=$(grep '#define MINOR' "SW/arduino/src/${{ matrix.type }}/${{ matrix.type }}.ino" | head -n 1 | awk '{print $3}')
+              PREVMAJOR=$(grep '^#define MAJOR' "fw/${{ matrix.type }}/src/main.cpp" | head -n 1 | awk '{print $3}')
+              PREVMINOR=$(grep '^#define MINOR' "fw/${{ matrix.type }}/src/main.cpp" | head -n 1 | awk '{print $3}')
               NEXTRELEASE=0
               NEXTBUILD=0
             fi
 
-            CURMAJOR=`cat SW/arduino/src/${{ matrix.type }}/${{ matrix.type }}.ino|grep MAJOR|head -n 1|cut -d ' ' -f 3`
-            CURMINOR=`cat SW/arduino/src/${{ matrix.type }}/${{ matrix.type }}.ino|grep MINOR|head -n 1|cut -d ' ' -f 3`
+            CURMAJOR=$(grep '^#define MAJOR' "fw/${{ matrix.type }}/src/main.cpp" | head -n 1 | awk '{print $3}')
+            CURMINOR=$(grep '^#define MINOR' "fw/${{ matrix.type }}/src/main.cpp" | head -n 1 | awk '{print $3}')
 
             if [ "$CURMAJOR" = "$PREVMAJOR" ] && [ "$CURMINOR" = "$PREVMINOR" ]; then
               echo "Same version"
@@ -83,54 +89,55 @@ jobs:
             echo "#define GHBUILD ${NEXTBUILD}" >> githash.h
             echo "#define GHBUILDTYPE ${BT}" >> githash.h
 
-            mv githash.h SW/arduino/src/${{ matrix.type }}/
+            mv githash.h "fw/${{ matrix.type }}/src/"
+          fi
 
-            EXTRA_FLAGS="-DCHANNELS=${{ matrix.channels }} -I${GITHUB_WORKSPACE}/SW/arduino/src/${{ matrix.type }}"
+          python3 -m pip install --upgrade pip
+          python3 -m pip install platformio
 
-            sudo snap install arduino-cli
-            arduino-cli core update-index --additional-urls https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json,https://mcudude.github.io/MightyCore/package_MCUdude_MightyCore_index.json > /dev/null
-            arduino-cli core install MightyCore:avr --additional-urls https://mcudude.github.io/MiniCore/package_MCUdude_MiniCore_index.json,https://mcudude.github.io/MightyCore/package_MCUdude_MightyCore_index.json > /dev/null
-            
-            PLATFORM=MightyCore:avr
-            BUILD_DIR="${GITHUB_WORKSPACE}/SW/arduino/${{ matrix.type }}/build"
-            arduino-cli compile --verbose --warnings all --fqbn MightyCore:avr:1284:BOD=disabled,LTO=Os,${{ matrix.fqbn }},variant=modelP --build-property compiler.cpp.extra_flags="${EXTRA_FLAGS}" --build-property compiler.c.extra_flags="${EXTRA_FLAGS}" --build-path "${BUILD_DIR}" SW/arduino/src/${{ matrix.type }}
+          PROJECT_DIR="fw/${{ matrix.type }}"
+          BUILD_DIR="${GITHUB_WORKSPACE}/fw/build"
+          PIO_BUILD_DIR="${PROJECT_DIR}/.pio/build/${{ matrix.env }}"
 
-            find "${BUILD_DIR}" -type f -name "*.hex" -exec bash -c 'mv "$1" "$(dirname "$1")/fw_${{ matrix.type }}_${{ matrix.name }}.'"${NEXTBUILD}-${BT}"'$(basename "$1" | sed -e "s/${{ matrix.type }}\.ino//g")"' _ {} \;
+          python3 -m platformio run -d "${PROJECT_DIR}" -e "${{ matrix.env }}"
 
-            rm -r "${GITHUB_WORKSPACE}/SW/arduino/build" || true
-            mv "${BUILD_DIR}" "${GITHUB_WORKSPACE}/SW/arduino/build"
+          mkdir -p "${BUILD_DIR}"
+          HEX_PATH="${PIO_BUILD_DIR}/firmware.hex"
+          cp "${HEX_PATH}" "${BUILD_DIR}/fw_${{ matrix.type }}_${{ matrix.name }}.${NEXTBUILD}-${BT}.hex"
 
-            NEXTBUILD=`echo $NEXTBUILD"+1"|bc`
+          if [ "${{ matrix.versioned }}" = "true" ]; then
+            NEXTBUILD=$(echo "$NEXTBUILD+1" | bc)
 
             if [ "$BUILD_TYPE" = "R" ]; then
-              NEXTRELEASE=`echo $NEXTRELEASE"+1"|bc`
+              NEXTRELEASE=$(echo "$NEXTRELEASE+1" | bc)
             fi
             echo "#this file is maintained by github actions" > nextversion
-            echo "MAJOR ${CURMAJOR}" >> nextversion 
-            echo "MINOR ${CURMINOR}" >> nextversion 
-            echo "RELEASE ${NEXTRELEASE}" >> nextversion 
-            echo "BUILD ${NEXTBUILD}" >> nextversion 
+            echo "MAJOR ${CURMAJOR}" >> nextversion
+            echo "MINOR ${CURMINOR}" >> nextversion
+            echo "RELEASE ${NEXTRELEASE}" >> nextversion
+            echo "BUILD ${NEXTBUILD}" >> nextversion
 
             echo "// This file is overwritten by github actions, do not update it manually" > githash.h
             echo "String githash = \"${{ github.sha }},User\";" >> githash.h
             echo "#define GHRELEASE ${NEXTRELEASE}" >> githash.h
             echo "#define GHBUILD 0" >> githash.h
             echo "#define GHBUILDTYPE User" >> githash.h
-      
-            mv nextversion SW/arduino/src/${{ matrix.type }}/
-            mv githash.h SW/arduino/src/${{ matrix.type }}/
-            touch root
 
-        - name: Store data
-          uses: actions/upload-artifact@v4
-          with:
-            name: fw_${{ matrix.type }}_${{ matrix.name }}
-            path: |
-              SW/arduino/build/*.hex
-              SW/arduino/src/${{ matrix.type }}/nextversion
-              SW/arduino/src/${{ matrix.type }}/githash.h
-              root
-            retention-days: 1
+            mv nextversion "fw/${{ matrix.type }}/"
+            mv githash.h "fw/${{ matrix.type }}/src/"
+          fi
+          touch root
+
+      - name: Store data
+        uses: actions/upload-artifact@v4
+        with:
+          name: fw_${{ matrix.type }}_${{ matrix.name }}
+          path: |
+            fw/build/*.hex
+            fw/${{ matrix.type }}/nextversion
+            fw/${{ matrix.type }}/src/githash.h
+            root
+          retention-days: 1
 
   commit:
     if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
@@ -143,37 +150,36 @@ jobs:
           token: ${{ secrets.pat }}
 
       - run: |
-          rm SW/arduino/build -r || true
-          mkdir SW/arduino/build
-          mkdir SW/arduino/artifacts
+          rm -rf fw/build || true
+          mkdir -p fw/build
+          mkdir -p fw/artifacts
 
       - name: Download a Build Artifact
         uses: actions/download-artifact@v4
         with:
-          path: 'SW/arduino/artifacts/'
-
+          path: 'fw/artifacts/'
 
       - name: Update git hash
         run: |
-          for d in `ls SW/arduino/artifacts`;
+          for d in `ls fw/artifacts`;
           do
-            cp -R SW/arduino/artifacts/$d/* ./ ||true
+            cp -R fw/artifacts/$d/* ./ ||true
           done
 
-          rm -rf SW/arduino/artifacts
+          rm -rf fw/artifacts
           rm -rf root
-                          
+
           git status
 
       - name: Get last commit message
         id: last-commit-message
         run: |
           echo "msg=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
-          
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: ${{ steps.last-commit-message.outputs.msg }}, extended build
-          file_pattern: 'SW/arduino/build/* SW/arduino/src/TFUNIPAYLOAD/githash.h SW/arduino/src/TFUNIPAYLOAD/nextversion SW/arduino/src/TFUNIPAYLOAD_MINIMAL/githash.h SW/arduino/src/TFUNIPAYLOAD_MINIMAL/nextversion'
+          file_pattern: 'fw/build/* fw/TFUNIPAYLOAD/src/githash.h fw/TFUNIPAYLOAD/nextversion fw/TFUNIPAYLOAD_MINIMAL/src/githash.h fw/TFUNIPAYLOAD_MINIMAL/nextversion'
           #commit_options: '--amend --no-edit'
           #push_options: '--force'
           skip_fetch: true
