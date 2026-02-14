@@ -5,6 +5,7 @@ on:
     paths:
       - 'fw/**'
       - '.github/workflows/*.yml'
+      - '!fw/build/**'
       - '!fw/**/src/githash.h'
       - '!fw/**/nextversion'
   pull_request:
