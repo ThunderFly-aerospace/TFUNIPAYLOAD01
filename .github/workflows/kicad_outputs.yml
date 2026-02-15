@@ -326,5 +326,5 @@ jobs:
         
     - uses: stefanzweifel/git-auto-commit-action@v4.16.0
       with:
-        commit_message: Update actions products
+        commit_message: Automatic update of KiCAD outputs
         add_options: '-A -f'
