@@ -106,7 +106,7 @@ jobs:
 
           mkdir -p "${BUILD_DIR}"
           HEX_PATH="${PIO_BUILD_DIR}/firmware.hex"
-          cp "${HEX_PATH}" "${BUILD_DIR}/fw_${{ matrix.type }}_${{ matrix.name }}.${NEXTBUILD}-${BT}.hex"
+          cp "${HEX_PATH}" "${BUILD_DIR}/fw_${{ matrix.type }}_${{ matrix.name }}.hex"
 
           if [ "${{ matrix.versioned }}" = "true" ]; then
             NEXTBUILD=$(echo "$NEXTBUILD+1" | bc)
