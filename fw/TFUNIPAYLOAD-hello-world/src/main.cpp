@@ -29,18 +29,59 @@ TX1/INT1 (D 11) PD3 17|        |24 PC2 (D 18) TCK
 
 #include <Arduino.h>
 
-uint32_t counter = 0;
+#if !defined(PIN_LED_RED) || !defined(PIN_LED_BLUE) || !defined(PIN_LED_GREEN) || !defined(PIN_BTN_USER_A) || !defined(PIN_BTN_USER_B)
+#error "Board macros PIN_LED_* and PIN_BTN_USER_* must be provided by board configuration"
+#endif
+
+static bool phase = false;
+static uint32_t counter = 0;
 
 void setup()
 {
   Serial.begin(115200);
-  Serial.println("TFUNIPAYLOAD01B");
+
+  pinMode(PIN_LED_RED, OUTPUT);
+  pinMode(PIN_LED_BLUE, OUTPUT);
+  pinMode(PIN_LED_GREEN, OUTPUT);
+
+  // Buttons have external pull-up resistors and are active in LOW state.
+  pinMode(PIN_BTN_USER_A, INPUT);
+  pinMode(PIN_BTN_USER_B, INPUT);
+
+  Serial.println("TFUNIPAYLOAD01 hello-world");
 }
 
 void loop()
 {
-  Serial.print(counter);
-  Serial.println(" hello-world");
+  const bool btnAIsPressed = digitalRead(PIN_BTN_USER_A) == LOW;
+  const bool btnBIsPressed = digitalRead(PIN_BTN_USER_B) == LOW;
+
+  uint16_t blinkDelayMs = 500;
+  if (btnAIsPressed && btnBIsPressed) {
+    blinkDelayMs = 80;
+  } else if (btnAIsPressed) {
+    blinkDelayMs = 150;
+  } else if (btnBIsPressed) {
+    blinkDelayMs = 1000;
+  }
+
+  digitalWrite(PIN_LED_GREEN, phase ? HIGH : LOW);
+  digitalWrite(PIN_LED_BLUE, phase ? LOW : HIGH);
+  digitalWrite(PIN_LED_RED, (btnAIsPressed || btnBIsPressed) ? HIGH : LOW);
+
   counter++;
-  delay(1000);
+  Serial.print("line=");
+  Serial.print(counter);
+  Serial.print(" uptime=");
+  Serial.print(millis() / 1000UL);
+  Serial.print("s btnA=");
+  Serial.print(btnAIsPressed ? "pressed" : "released");
+  Serial.print(" btnB=");
+  Serial.print(btnBIsPressed ? "pressed" : "released");
+  Serial.print(" blink=");
+  Serial.print(blinkDelayMs);
+  Serial.println("ms");
+
+  phase = !phase;
+  delay(blinkDelayMs);
 }
