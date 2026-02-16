@@ -1,12 +1,12 @@
 - name: TFUNIPAYLOAD01
   type: TFUNIPAYLOAD
-  env: TFUNIPAYLOAD01B_uart
+  env: TFUNIPAYLOAD01_uart
   versioned: "true"
 - name: TFUNIPAYLOAD01
   type: TFUNIPAYLOAD_MINIMAL
-  env: TFUNIPAYLOAD01B_uart
+  env: TFUNIPAYLOAD01_uart
   versioned: "true"
 - name: TFUNIPAYLOAD01
   type: TFUNIPAYLOAD-hello-world
-  env: TFUNIPAYLOAD01B_uart
+  env: TFUNIPAYLOAD01_uart
   versioned: "false"
