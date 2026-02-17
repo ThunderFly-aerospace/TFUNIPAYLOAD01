@@ -35,6 +35,7 @@ TX1/INT1 (D 11) PD3 17|        |24 PC2 (D 18) TCK
 
 static bool phase = false;
 static uint32_t counter = 0;
+static uint32_t lastBlinkToggleMs = 0;
 
 void setup()
 {
@@ -47,6 +48,12 @@ void setup()
   // Buttons have external pull-up resistors and are active in LOW state.
   pinMode(PIN_BTN_USER_A, INPUT);
   pinMode(PIN_BTN_USER_B, INPUT);
+
+  digitalWrite(PIN_LED_GREEN, LOW);
+  digitalWrite(PIN_LED_BLUE, HIGH);
+  digitalWrite(PIN_LED_RED, HIGH);
+
+  lastBlinkToggleMs = millis();
 
   Serial.println("TFUNIPAYLOAD01 hello-world");
 }
@@ -65,23 +72,30 @@ void loop()
     blinkDelayMs = 1000;
   }
 
-  digitalWrite(PIN_LED_GREEN, phase ? HIGH : LOW);
-  digitalWrite(PIN_LED_BLUE, phase ? LOW : HIGH);
-  digitalWrite(PIN_LED_RED, (btnAIsPressed || btnBIsPressed) ? HIGH : LOW);
+  const bool anyButtonIsPressed = btnAIsPressed || btnBIsPressed;
+  const bool redLedIsOn = anyButtonIsPressed; 
 
-  counter++;
-  Serial.print("line=");
-  Serial.print(counter);
-  Serial.print(" uptime=");
-  Serial.print(millis() / 1000UL);
-  Serial.print("s btnA=");
-  Serial.print(btnAIsPressed ? "pressed" : "released");
-  Serial.print(" btnB=");
-  Serial.print(btnBIsPressed ? "pressed" : "released");
-  Serial.print(" blink=");
-  Serial.print(blinkDelayMs);
-  Serial.println("ms");
+  digitalWrite(PIN_LED_RED, false ? HIGH : LOW);
 
-  phase = !phase;
-  delay(blinkDelayMs);
+  const uint32_t nowMs = millis();
+  if (nowMs - lastBlinkToggleMs >= blinkDelayMs) {
+    lastBlinkToggleMs = nowMs;
+    phase = !phase;
+
+    digitalWrite(PIN_LED_GREEN, phase ? HIGH : LOW);
+    digitalWrite(PIN_LED_BLUE, phase ? LOW : HIGH);
+
+    counter++;
+    Serial.print("line=");
+    Serial.print(counter);
+    Serial.print(" uptime=");
+    Serial.print(millis() / 1000UL);
+    Serial.print("s btnA=");
+    Serial.print(btnAIsPressed ? "pressed" : "released");
+    Serial.print(" btnB=");
+    Serial.print(btnBIsPressed ? "pressed" : "released");
+    Serial.print(" blink=");
+    Serial.print(blinkDelayMs);
+    Serial.println("ms");
+  }
 }
