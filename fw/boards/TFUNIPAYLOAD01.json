@@ -8,7 +8,7 @@
     "variant": "standard"
   },
   "bootloader": {
-    "led_pin": "B0",
+    "led_pin": "C7",
     "uart0_pins": "uart0_rxd0_txd1",
     "uart1_pins": "uart1_rxd2_txd3"
   },
@@ -26,6 +26,6 @@
     "require_upload_port": true,
     "speed": 115200
   },
-  "url": "https://www.microchip.com/wwwproducts/en/ATmega1284p",
-  "vendor": "ThunderFly"
+  "url": "https://docs.thunderfly.cz/avionics/TFUNIPAYLOAD01/",
+  "vendor": "ThunderFly s.r.o."
 }
