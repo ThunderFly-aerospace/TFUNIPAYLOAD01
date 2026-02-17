@@ -104,6 +104,7 @@ jobs:
 
           python3 -m platformio run -d "${PROJECT_DIR}" -e "${{ matrix.env }}"
 
+          rm -rf "${BUILD_DIR}"
           mkdir -p "${BUILD_DIR}"
           HEX_PATH="${PIO_BUILD_DIR}/firmware.hex"
           cp "${HEX_PATH}" "${BUILD_DIR}/fw_${{ matrix.type }}_${{ matrix.name }}.hex"
@@ -136,7 +137,7 @@ jobs:
         with:
           name: fw_${{ matrix.type }}_${{ matrix.name }}
           path: |
-            fw/build/*.hex
+            fw/build/fw_${{ matrix.type }}_${{ matrix.name }}.hex
             fw/${{ matrix.type }}/nextversion
             fw/${{ matrix.type }}/src/githash.h
             root
