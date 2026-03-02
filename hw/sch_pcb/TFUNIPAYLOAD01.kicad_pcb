@@ -8079,7 +8079,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://v4.cecdn.yun300.cn/100001_2003185297/17%20FYLS-1206XXXC-D.pdf"
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -8555,7 +8555,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "51R"
+		(property "Value" "100R"
 			(at -0.4318 1.6256 0)
 			(layer "B.Fab")
 			(uuid "413c8014-8dff-4e6e-973a-d938f47cac1d")
@@ -8591,7 +8591,7 @@
 				)
 			)
 		)
-		(property "UST_ID" "5c70984512875079b91f8953"
+		(property "UST_ID" "5c70984512875079b91f8956"
 			(at 267.111268 -34.573414 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -11791,7 +11791,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "18R"
+		(property "Value" "100R"
 			(at 2.794 0.0254 0)
 			(layer "B.Fab")
 			(uuid "b5a05567-6ce4-44ff-a6f5-8e81710045a3")
@@ -11827,7 +11827,7 @@
 				)
 			)
 		)
-		(property "UST_ID" "5c70984512875079b91f896e"
+		(property "UST_ID" "5c70984512875079b91f8956"
 			(at 272.191268 -39.653414 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -15732,7 +15732,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "82R"
+		(property "Value" "180R"
 			(at -0.0508 1.5748 0)
 			(layer "B.Fab")
 			(uuid "70837a70-9146-4885-ac87-08de3e5e15b7")
@@ -15768,7 +15768,7 @@
 				)
 			)
 		)
-		(property "UST_ID" "5c70984512875079b91f8976"
+		(property "UST_ID" "5c70984512875079b91f897c"
 			(at 262.031268 -29.493414 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -20566,7 +20566,7 @@
 			(extension_offset 0.5)
 			(keep_text_aligned yes)
 		)
-		(gr_text "70.612 mm"
+		(gr_text "2780 mils"
 			(at 148.5 71.846 0)
 			(layer "Cmts.User")
 			(uuid "5defbcfd-159e-4be2-bf05-af9665ef5cdc")
@@ -20604,7 +20604,7 @@
 			(extension_offset 0.5)
 			(keep_text_aligned yes)
 		)
-		(gr_text "50.292 mm"
+		(gr_text "1980 mils"
 			(at 189.5648 104.999999 90)
 			(layer "Cmts.User")
 			(uuid "70e130d0-2f64-4d7e-884d-5f9cd52513d1")
@@ -20642,7 +20642,7 @@
 			(extension_offset 0.5)
 			(keep_text_aligned yes)
 		)
-		(gr_text "40.64 mm"
+		(gr_text "1600 mils"
 			(at 108.996 105 90)
 			(layer "Cmts.User")
 			(uuid "89da1d59-b16e-4c09-8631-10545ab301ff")
@@ -20680,7 +20680,7 @@
 			(extension_offset 0.5)
 			(keep_text_aligned yes)
 		)
-		(gr_text "60.96 mm"
+		(gr_text "2400 mils"
 			(at 148.5 132.4504 0)
 			(layer "Cmts.User")
 			(uuid "bf3c62a4-9bca-41ea-8062-c537aac228d8")

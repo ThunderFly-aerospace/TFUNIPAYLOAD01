@@ -15344,7 +15344,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://v4.cecdn.yun300.cn/100001_2003185297/17%20FYLS-1206XXXC-D.pdf"
 			(at 336.55 52.07 0)
 			(effects
 				(font
@@ -20042,7 +20042,7 @@
 				)
 			)
 		)
-		(property "Value" "18R"
+		(property "Value" "100R"
 			(at 326.39 100.717 90)
 			(effects
 				(font
@@ -20077,7 +20077,7 @@
 				(hide yes)
 			)
 		)
-		(property "UST_ID" "5c70984512875079b91f896e"
+		(property "UST_ID" "5c70984512875079b91f8956"
 			(at 326.39 97.79 0)
 			(effects
 				(font
@@ -20118,7 +20118,7 @@
 				)
 			)
 		)
-		(property "Value" "51R"
+		(property "Value" "100R"
 			(at 333.623 60.96 90)
 			(effects
 				(font
@@ -20153,7 +20153,7 @@
 				(hide yes)
 			)
 		)
-		(property "UST_ID" "5c70984512875079b91f8953"
+		(property "UST_ID" "5c70984512875079b91f8956"
 			(at 336.55 60.96 0)
 			(effects
 				(font
@@ -20534,7 +20534,7 @@
 				)
 			)
 		)
-		(property "Value" "82R"
+		(property "Value" "180R"
 			(at 386.963 81.28 90)
 			(effects
 				(font
@@ -20569,7 +20569,7 @@
 				(hide yes)
 			)
 		)
-		(property "UST_ID" "5c70984512875079b91f8976"
+		(property "UST_ID" "5c70984512875079b91f897c"
 			(at 389.89 81.28 0)
 			(effects
 				(font

@@ -852,7 +852,7 @@
           "group_by": false,
           "label": "UST_ID",
           "name": "UST_ID",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
