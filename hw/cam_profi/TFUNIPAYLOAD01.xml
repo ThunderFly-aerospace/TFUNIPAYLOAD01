@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/github/workspace/hw/sch_pcb/TFUNIPAYLOAD01.kicad_sch</source>
-    <date>2026-03-02T21:19:16+0000</date>
+    <date>2026-03-02T22:42:29+0000</date>
     <tool>Eeschema 9.0.7+1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -353,11 +353,11 @@
     <comp ref="D3">
       <value>BLUE</value>
       <footprint>Mlab_D:LED_1206_mill</footprint>
-      <datasheet>~</datasheet>
+      <datasheet>https://v4.cecdn.yun300.cn/100001_2003185297/17%20FYLS-1206XXXC-D.pdf</datasheet>
       <fields>
         <field name="UST_ID">5c70984512875079b91f8898</field>
         <field name="Footprint">Mlab_D:LED_1206_mill</field>
-        <field name="Datasheet">~</field>
+        <field name="Datasheet">https://v4.cecdn.yun300.cn/100001_2003185297/17%20FYLS-1206XXXC-D.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
@@ -913,17 +913,17 @@
       <tstamps>00000000-0000-0000-0000-00005b1e1a11</tstamps>
     </comp>
     <comp ref="R6">
-      <value>51R</value>
+      <value>100R</value>
       <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
-        <field name="UST_ID">5c70984512875079b91f8953</field>
+        <field name="UST_ID">5c70984512875079b91f8956</field>
         <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
         <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
-      <property name="UST_ID" value="5c70984512875079b91f8953"/>
+      <property name="UST_ID" value="5c70984512875079b91f8956"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="TFUNIPAYLOAD01.kicad_sch"/>
       <property name="ki_keywords" value="R res resistor"/>
@@ -950,17 +950,17 @@
       <tstamps>9f86b7c3-5d85-41db-9ffa-cffe7c7d4bb1</tstamps>
     </comp>
     <comp ref="R8">
-      <value>82R</value>
+      <value>180R</value>
       <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
-        <field name="UST_ID">5c70984512875079b91f8976</field>
+        <field name="UST_ID">5c70984512875079b91f897c</field>
         <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
         <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
-      <property name="UST_ID" value="5c70984512875079b91f8976"/>
+      <property name="UST_ID" value="5c70984512875079b91f897c"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="TFUNIPAYLOAD01.kicad_sch"/>
       <property name="ki_keywords" value="R res resistor"/>
@@ -1081,17 +1081,17 @@
       <tstamps>779a1bdb-bff9-4f28-8f0a-6b9a014f08a4</tstamps>
     </comp>
     <comp ref="R15">
-      <value>18R</value>
+      <value>100R</value>
       <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
-        <field name="UST_ID">5c70984512875079b91f896e</field>
+        <field name="UST_ID">5c70984512875079b91f8956</field>
         <field name="Footprint">Resistor_SMD:R_0805_2012Metric</field>
         <field name="Datasheet">~</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
-      <property name="UST_ID" value="5c70984512875079b91f896e"/>
+      <property name="UST_ID" value="5c70984512875079b91f8956"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="TFUNIPAYLOAD01.kicad_sch"/>
       <property name="ki_keywords" value="R res resistor"/>
