@@ -73,9 +73,8 @@ void loop()
   }
 
   const bool anyButtonIsPressed = btnAIsPressed || btnBIsPressed;
-  const bool redLedIsOn = anyButtonIsPressed; 
 
-  digitalWrite(PIN_LED_RED, false ? HIGH : LOW);
+  digitalWrite(PIN_LED_RED, anyButtonIsPressed);
 
   const uint32_t nowMs = millis();
   if (nowMs - lastBlinkToggleMs >= blinkDelayMs) {
